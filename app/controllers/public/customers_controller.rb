@@ -27,6 +27,6 @@ class Public::CustomersController < ApplicationController
 
 # 	def params
   	
-  end
+    end
     
 end
