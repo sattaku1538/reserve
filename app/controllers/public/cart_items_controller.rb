@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItems.where(customer_id: current_customer.id)
     @items = Products.find(@cart_items.product_id)
+    # カート内商品の合計金額を算出
     @total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
   
