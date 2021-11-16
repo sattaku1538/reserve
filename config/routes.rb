@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_all'
     
     # カスタマーズのリソース佐藤Update
-    resources :customers, only[:show, :edit]
+    resources :customers, only[:show, :edit, :update]
+    get 'customers/unsubscribe'
+    get 'customers/withdraw'
     
   end
   
