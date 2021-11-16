@@ -10,6 +10,31 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <%= link_to public_root_path, class:"navbar-brand" do %>
+           <img>
+          <% end %>
+          <ul class="navbar-nav">
+            <li class="navitem">
+              hoge
+            </li>
+            <li class="navitem">
+              hoge
+            </li>
+            <li class="navitem">
+              hoge
+            </li>
+            <li class="navitem">
+              hoge
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+    </header>
     <%= yield %>
+    <footer></footer>
   </body>
 </html>
