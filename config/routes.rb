@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     # カート内商品の全削除
     delete 'cart_items' => 'cart_items#destroy_all'
     
-    # カスタマーズのリソース佐藤U
-    resources :customers
+    # カスタマーズのリソース佐藤Update
+    resources :customers, only[:show, :edit]
     
   end
   
