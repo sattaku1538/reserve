@@ -1,8 +1,8 @@
 class Admin::OrdersController < ApplicationController
-  before_action :set_order
+  before_action :set_order, only: %i[show update]
   
   def index
-    @orders = Order.find.all.order(created_at: :DESC)
+    @orders = Order.all.order(created_at: :DESC)
   end
 
   def show

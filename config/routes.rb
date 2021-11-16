@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'orders#index'
     resources :products, only:[:index, :new, :create, :show, :edit, :update]
-    resources :orders, only:[:index, :show, :update]
-    resources :order_details, only:[:update]
+    resources :orders, only:[:index, :show, :update] do
+      resources :order_details, only:[:update]
+    end
     resources :categories, only:[:index, :create, :edit, :update]
   end
   namespace :public do
