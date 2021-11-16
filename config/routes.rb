@@ -1,17 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'categories/index'
-    get 'categories/edit'
-  end
-  namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'products/index'
-    get 'products/new'
-    get 'products/show'
-    get 'products/edit'
+    resources :products, only:[:index, :new, :create, :show, :edit, :update]
+    resources :orders, only:[:index, :show, :update]
+    resources :order_details, only:[:update]
+    resources :categories, only:[:index, :create, :edit, :update]
   end
   devise_for :admins
   devise_for :customers
