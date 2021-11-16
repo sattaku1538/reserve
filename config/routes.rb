@@ -9,14 +9,21 @@ Rails.application.routes.draw do
   namespace :public do
     root to: 'homes#top'
     get 'homes/about'
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
+    resources :orders, only:[:index,:show,:new,:create]
+    
+    # 注文確認画面のルーティング
+    post 'orders/confirm' => 'orders#confirm'
+    
+    # 注文完了画面のルーティング
+    get 'orders/complete' => 'orders#complete'
+    
+    resources :products, only:[:index,:show]
+    resources :cart_items, only:[:index,:create,:update,:destroy]
+    
+    # カート内商品の全削除
+    delete 'cart_items' => 'cart_items#destroy_all'
   end
-  namespace :public do
-    get 'products/index'
-    get 'products/show'
-  end
+  
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }

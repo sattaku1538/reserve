@@ -8,4 +8,8 @@ class Product < ApplicationRecord
   # refileを使用して商品画像をアップする
   attachment :image
   
+  # 商品の税込み価格算出
+  def tax_in_price
+    price*1.1
+  end
 end
