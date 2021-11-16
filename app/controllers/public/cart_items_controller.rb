@@ -1,4 +1,7 @@
 class Public::CartItemsController < ApplicationController
+  
+  before_action :set_item
+  
   def index
     @cart_items = CartItems.where(customer_id: current_customer.id)
     @items = Products.find(@cart_items.product_id)
@@ -14,13 +17,12 @@ class Public::CartItemsController < ApplicationController
   end
   
   def update
-    @item = CartItem.find(params[:id])
-    @item.update
+    @item.update(cart_item_params)
     redirect_back(fallback_location: public_cart_items_path)
   end
   
   def destroy
-    @item = CartItem.find(params[:id]).destroy
+    @item.destroy
     redirect_back(fallback_location: public_cart_items_path)
   end
   
@@ -33,5 +35,9 @@ class Public::CartItemsController < ApplicationController
   
   def cart_item_params
     params.require(:cart_item).permit(:quanitity)
+  end
+  
+  def set_item
+    @item = CartItem.find(params[:id])
   end
 end
