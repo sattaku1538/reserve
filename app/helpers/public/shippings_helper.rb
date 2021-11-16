@@ -1,2 +1,2 @@
-module Public::ShippingHelper
+module Public::ShippingsHelper
 end
