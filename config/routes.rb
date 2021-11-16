@@ -24,6 +24,12 @@ Rails.application.routes.draw do
     
     # カート内商品の全削除
     delete 'cart_items' => 'cart_items#destroy_all'
+    
+    # カスタマーズのリソース佐藤Update リソースは基本のindex等しか入っていないので、withdrawは別個で入れる必要が
+    resources :customers, only[:show, :edit, :update]
+    get 'customers/unsubscribe'
+    get 'customers/withdraw'
+    
   end
   
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
