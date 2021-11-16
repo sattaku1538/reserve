@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_053726) do
+ActiveRecord::Schema.define(version: 2021_11_16_072521) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 2021_11_16_053726) do
     t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,6 +58,17 @@ ActiveRecord::Schema.define(version: 2021_11_16_053726) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "discription", null: false
+    t.string "image_id", null: false
+    t.integer "category_id", null: false
+    t.boolean "is_sold", default: true, null: false
+    t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
