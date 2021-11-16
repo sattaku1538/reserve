@@ -20,7 +20,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def destroy
-    @item = CartItem.find_by(params[:id]).destroy
+    @item = CartItem.find(params[:id]).destroy
     redirect_back(fallback_location: public_cart_items_path)
   end
   

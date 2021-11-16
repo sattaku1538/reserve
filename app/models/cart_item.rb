@@ -1,8 +1,4 @@
 class CartItem < ApplicationRecord
-    
-    
-  # カート内商品の小計算出
-  def sum_of_price
-    product.tax_in_price * quanitity
-  end
+  belongs_to :customer
+  belongs_to :product
 end
