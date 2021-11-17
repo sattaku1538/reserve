@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <div style="height:500px;background-color:#555"></div>
+    </div>
+    <div class="col-10">
+      <div id="main_visual" style="height:300px;width:600px">
+        <p class="my-auto ml-3">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。<br>
+        </p>
+      </div>
+      <div id="new_products">
+        <h1>新着商品</h1>
+        <div class="d-flex">
+          <% @products.each do |product| %>
+            <div id="product_content">
+              <%= attachment_image_tag prodauct, :image, :fill, 100, 200 %>
+              <%= product.name %>
+              <%= product.price %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to "全ての商品を見る", public_products_path %>
+      </div>
+    </div>
+  </div>
+</div>
