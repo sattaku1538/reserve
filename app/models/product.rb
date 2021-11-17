@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_details, dependent: :destroy
 
-  belongs_to :category
+  belongs_to :category, optional: true
   
   # refileを使用して商品画像をアップする
   attachment :image

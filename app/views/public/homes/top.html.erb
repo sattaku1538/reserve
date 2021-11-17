@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
     <%= render 'public/products/category',categories: @categories %>
     <div class="col-9">
@@ -13,41 +13,12 @@
       <div id="new_products">
         <h3>新着商品</h3>
         <div class="d-flex">
-          <div class="mx-1">
-            <div class="border" style="height:100px;width:200px"></div>
-            <div class="mt-2">
-              <p>商品名</p>
-              <p>¥500</p>
-            </div>
-          </div>
-          <div class="mx-1">
-            <div class="border" style="height:100px;width:200px"></div>
-            <div class="mt-2">
-              <p>商品名</p>
-              <p>¥500</p>
-            </div>
-          </div>
-          <div class="mx-1">
-            <div class="border" style="height:100px;width:200px"></div>
-            <div class="mt-2">
-              <p>商品名</p>
-              <p>¥500</p>
-            </div>
-          </div>
-          <div class="mx-1">
-            <div class="border" style="height:100px;width:200px"></div>
-            <div class="mt-2">
-              <p>商品名</p>
-              <p>¥500</p>
-            </div>
-          </div>
-          
           <% @products.each do |product| %>
             <div id="product_content">
-              <%= attachment_image_tag prodauct, :image, :fill, 100, 200, class:"mx-1" %>
+              <%= attachment_image_tag product, :image, :fill, 200, 100, class:"mx-1" %>
               <div class="mt-2">
-                <%= product.name %>
-                <%= product.price %>
+                <%= product.name %><br>
+                ¥<%= product.price %>
               </div>
             </div>
           <% end %>
