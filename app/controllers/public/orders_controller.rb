@@ -41,7 +41,7 @@ class Public::OrdersController < ApplicationController
       @order_item.price = cart_item.product.tax_in_price
       @order_item.quantity = cart_item.quantity
       @order_item.save
-    end    
+    end 
     redirect_to public_orders_complete_path
   end
   
