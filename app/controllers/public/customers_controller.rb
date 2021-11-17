@@ -24,7 +24,7 @@ class Public::CustomersController < ApplicationController
 	def unsubscribe
     end
 
-	def is_deleted
+	def withdraw
     	@customer.update(is_deleted: false)
     	reset_session
     	redirect_to root_path
