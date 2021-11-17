@@ -20,7 +20,6 @@ class Public::CustomersController < ApplicationController
       end
     end
 
-	   # なかじさん　Viewページの作成をお願いします。？
 	def unsubscribe
     	@customer = current_customer
 	end
@@ -34,8 +33,8 @@ class Public::CustomersController < ApplicationController
 
 	private
 
-# 	def params
-
-#    end
+	def customer_params
+		params.require(:customer).permit(:email, :first_name, :last_name, :first_name_ruby, :last_name_ruby, :post_code, :address, :telephine_number)
+    end
 
 end
