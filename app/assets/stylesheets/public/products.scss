@@ -1,3 +1,18 @@
 // Place all the styles related to the public/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category-table {
+  border: solid black 1px ;
+}
+
+.category-table th {
+  border-bottom: 1px solid black;
+}
+
+.image-box {
+  border: solid 1px #C0C0C0;
+  width : 200px;
+  height: 130px;
+}
+

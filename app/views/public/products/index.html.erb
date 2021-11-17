@@ -1,2 +1,58 @@
-<h1>Public::Products#index</h1>
-<p>Find me in app/views/public/products/index.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <!--ジャンル検索窓のテンプレート-->
+    <%= render 'public/products/category', categories: @categories %>
+    <div class="col-md-9">
+      <h2><strong>商品一覧</strong></h2><p>(全<%= @products.count %>件)</p>
+      <div class="d-flex flex-wrap justify-content-between">
+        <!--<% @products.each do |product| %>-->
+        <!--  <div>-->
+        <!--    <div></div>-->
+        <!--    <strong><%= product.name %></storong>-->
+        <!--    <strong><%= product.tax_in_price %></strong>-->
+        <!--  </div>-->
+        <!--<% end %>-->
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+        <div class="product-box">
+          <div class="image-box"></div>
+          <p><strong>商品名</strong></p>
+          <p><strong>￥0,000</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
