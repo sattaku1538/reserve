@@ -3,7 +3,7 @@
     <!--ジャンル検索窓のテンプレート-->
     <%= render 'public/products/category', categories: @categories %>
     <div class="col-md-9">
-      <h2><strong>商品一覧</strong></h2><p>(全<%= @products.count %>件)</p>
+      <h2><strong>商品一覧</strong></h2>(全<%= @products.count %>件)
       <div class="d-flex flex-wrap justify-content-between">
         <% @products.each do |product| %>
           <div>
@@ -58,6 +58,8 @@
           <p><strong>商品名</strong></p>
           <p><strong>￥0,000</strong></p>
         </div>
+        <!--ここまで-->
+        
       </div>
     </div>
   </div>

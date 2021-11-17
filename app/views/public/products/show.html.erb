@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <%= render 'products/category' category: @category %>
-    <div>
-      <%= attachment_image_tag %>
+    <div class="col-md-3">
+      <%= attachment_image_tag @product, :image, size:"300x180"%>
+    </div>
+    <div class="col-md-6">
       <h4><%= @product.name %></h4>
       <%= @product.discription %>
       <strong><%= @product.tax_in_price %></strong>(税込)
       <%= form_with model: @cart_item, class:"form-inline" |f| do %>
         <%= f.hidden_field :product_id, value: @product.id %>
         <%= f.select :quantity, *[1..3] %>
+        <%= f.submit "カートに入れる", class:"btn btn-success" %>
       <% end %>
     </div>
   </div>
