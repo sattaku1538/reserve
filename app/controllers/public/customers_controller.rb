@@ -16,12 +16,12 @@ class Public::CustomersController < ApplicationController
 
 	   # なかじさん　Viewページの作成をお願いします。？
 	def unsubscribe
-    	@customer = Customer.find_by(name: params[:name])
+    	@customer = current_ustomer
 	end
 
-	def withdraw
-    	@customer = Customer.find_by(name: params[:name])
-    	@customer.update(is_valid: false)
+	def is_deleted
+    	@customer = current_ustomer
+    	@customer.update(is_deleted: false)
     	reset_session
     	redirect_to root_path
 	end

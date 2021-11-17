@@ -2,16 +2,19 @@
 
 class Public:customer::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :reject_inacrive_customer, only: [:create]
-  
+
+  #退会後ログイン阻止
+  before_action :reject_inacrive_current_customer, only: [:create]
+
   def reject_inactive_customer
-    @customer = Customer.find_by(name: params[:customer] [:name])
+    @customer = current_ustomer
     if @customer
-      if @customer.valid_password?(params[:customer][:password]) && !@user.is_valid
+      if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
         redirect_to new_user_session_path
       end
     end
   end
+
   # GET /resource/sign_in
   # def new
   #   super
