@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-    
+
     # before_action :authenticate_customer, except: [:？？？？？？？？]
 
     def show
@@ -9,7 +9,7 @@ class Public::CustomersController < ApplicationController
 	def edit
 	 @customer = current_customer	
 	end
-	
+
 	def update
 	 @customer = current_customer
 	  if @customer.update(customer_params)
@@ -19,20 +19,23 @@ class Public::CustomersController < ApplicationController
 	     render "edit"
       end
     end
-	
-	def unsubscribe
+
 	   # なかじさん　Viewページの作成をお願いします。？
-	end
-	
-	def withdraw
-	   # なかじさん
+	def unsubscribe
+    	@customer = current_customer
 	end
 
+	def is_deleted
+    	@customer = current_customer
+    	@customer.update(is_deleted: false)
+    	reset_session
+    	redirect_to root_path
+	end
 
 	private
 
 # 	def params
-  	
-    end
-    
+
+#    end
+
 end
