@@ -1,18 +1,19 @@
 class Public::CustomersController < ApplicationController
 
-    # before_action :authenticate_customer, except: [:？？？？？？？？]
+    before_action :set_customer
+    
+    def set_customer
+    @customer = current_customer
+    end
 
     def show
-     @customer = current_customer
 	end
 
 	def edit
-	 @customer = current_customer	
 	end
 
 	def update
-	 @customer = current_customer
-	  if @customer.update(customer_params)
+	   if @customer.update(customer_params)
 	  	redirect_to customer_path
 	  	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
 	    else
@@ -21,11 +22,9 @@ class Public::CustomersController < ApplicationController
     end
 
 	def unsubscribe
-    	@customer = current_customer
-	end
+    end
 
 	def is_deleted
-    	@customer = current_customer
     	@customer.update(is_deleted: false)
     	reset_session
     	redirect_to root_path
