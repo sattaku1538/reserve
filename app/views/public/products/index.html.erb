@@ -5,13 +5,19 @@
     <div class="col-md-9">
       <h2><strong>商品一覧</strong></h2><p>(全<%= @products.count %>件)</p>
       <div class="d-flex flex-wrap justify-content-between">
-        <!--<% @products.each do |product| %>-->
-        <!--  <div>-->
-        <!--    <div></div>-->
-        <!--    <strong><%= product.name %></storong>-->
-        <!--    <strong><%= product.tax_in_price %></strong>-->
-        <!--  </div>-->
-        <!--<% end %>-->
+        <% @products.each do |product| %>
+          <div>
+            <%= link_to public_product_path do %>
+              <%= attachement_image_tag product, :image, size:"200x120" %>
+            <% end %>
+            <%= link_to public_priduct_path do %>
+              <strong><%= product.name %></storong>
+            <% end %>
+            <strong><%= product.tax_in_price %></strong>
+          </div>
+        <% end %>
+
+        <!--データがないので仮に表示-->
         <div class="product-box">
           <div class="image-box"></div>
           <p><strong>商品名</strong></p>
