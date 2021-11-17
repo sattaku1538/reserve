@@ -70,6 +70,19 @@ ActiveRecord::Schema.define(version: 2021_11_17_035005) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "address_name", null: false
+    t.integer "postage", null: false
+    t.integer "total_price", null: false
+    t.integer "payment_method", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.text "discription", null: false
@@ -77,6 +90,15 @@ ActiveRecord::Schema.define(version: 2021_11_17_035005) do
     t.integer "category_id", null: false
     t.boolean "is_sold", default: true, null: false
     t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "address", null: false
+    t.string "address_name", null: false
+    t.string "post_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
