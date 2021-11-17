@@ -3,7 +3,7 @@ class CartItem < ApplicationRecord
   belongs_to :product
   
   # カート内商品の小計算出
-  def sum_of_price
+  def subtotal
     product.tax_in_price * quanitity
   end
 end
