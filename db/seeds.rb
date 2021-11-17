@@ -12,7 +12,7 @@
 # Product.create(name: 'cake3', discription: 'good', category_id: 3, is_sold: true, price: 500)
 # Product.create(name: 'cake4', discription: 'good', category_id: 4, is_sold: true, price: 500)
 
-Category.create(name: 'cake')
-Category.create(name: 'baked')
-Category.create(name: 'pudding')
-Category.create(name: 'candy')
+Category.create(name: 'ケーキ')
+Category.create(name: '焼き菓子')
+Category.create(name: 'プリン')
+Category.create(name: 'キャンディ')
