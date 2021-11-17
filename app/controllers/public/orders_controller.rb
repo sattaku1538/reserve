@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     # カートの商品をorder_detailに保存
-    @cart_items = current_user.cart_items.all
+    @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
       @order_item = @order.order_details.new
       @order_item.product_id = cart_item.product_id
@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
       @order_item.quantity = cart_item.quantity
       @order_item.save
     end    
-    
+    current_customer.cart_items.destroy_all
     redirect_to public_orders_complete_path
   end
   
