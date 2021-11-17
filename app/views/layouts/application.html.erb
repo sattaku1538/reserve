@@ -20,13 +20,13 @@
           <div class="collapse navbar-collapse flex-column" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2">
               <li class="nav-item">
-                <a class="nav-link btn btn-outline-secondary ml-4"  href="#">about</a>
+                <%= link_to "about", public_homes_about_path, class:"nav-link btn btn-outline-secondary ml-4" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn btn-outline-secondary ml-4" href="#">商品一覧</a>
+                <%= link_to "商品一覧", public_products_path, class:"nav-link btn btn-outline-secondary ml-4" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn btn-outline-secondary ml-4" href="#">新規登録</a>
+                <%= link_to "新規登録", new_customer_registration_path, class:"nav-link btn btn-outline-secondary ml-4" %>
               </li>
               <li class="nav-item">
                 <a class="nav-link btn btn-outline-secondary ml-4" href="#" tabindex="-1" aria-disabled="true">ログイン</a>
