@@ -16,11 +16,11 @@ class Public::CustomersController < ApplicationController
 
 	   # なかじさん　Viewページの作成をお願いします。？
 	def unsubscribe
-    	@customer = current_ustomer
+    	@customer = current_customer
 	end
 
 	def is_deleted
-    	@customer = current_ustomer
+    	@customer = current_customer
     	@customer.update(is_deleted: false)
     	reset_session
     	redirect_to root_path

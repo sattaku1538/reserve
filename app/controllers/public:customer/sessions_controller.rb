@@ -7,7 +7,7 @@ class Public:customer::SessionsController < Devise::SessionsController
   before_action :reject_inacrive_current_customer, only: [:create]
 
   def reject_inactive_customer
-    @customer = current_ustomer
+    @customer = current_customer
     if @customer
       if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
         redirect_to new_user_session_path
