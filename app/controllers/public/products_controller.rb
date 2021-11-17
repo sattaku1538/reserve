@@ -1,7 +1,7 @@
 class Public::ProductsController < ApplicationController
   def index
-    @products = Products.where(is_sold: true)
-    @categories = Categories.all
+    @products = Product.where(is_sold: true)
+    @categories = Category.all
   end
 
   def show
