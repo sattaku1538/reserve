@@ -17,3 +17,79 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+/*管理者のログイン*/
+.admin_login {
+ display: inline-block;
+ background-color: #acabab;
+ border-radius: 3px;
+ font-size: 1rem;
+ margin-top: 50px;
+}
+.login_box {
+  width: 100%;
+}
+
+.login_box2 {
+  width: 100%;
+}
+.login_table {
+  width: 100%;
+  margin-top: 100px;
+}
+
+/*ここまで*/
+
+/*顧客のログイン*/
+.public_login {
+ display: inline-block;
+ background-color: #acabab;
+ border-radius: 3px;
+ font-size: 1rem;
+ margin-top: 50px;
+}
+.box_login{
+  display: inline-block;
+  background-color: #0099FF;
+  border-radius: 3px;
+  color: #fff;
+}
+
+/*ここまで*/
+
+/*管理者の新規登録*/
+
+.public_sign_up {
+ display: inline-block;
+ background-color: #acabab;
+ border-radius: 3px;
+ font-size: 1rem;
+ margin-top: 50px;
+}
+
+.box_sign_up{
+  display: inline-block;
+  background-color: #00CC00;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.form-group {
+  input[type="text"] {
+  width: 100%;
+  }
+
+  input[type="email"] {
+  width: 100%;
+  }
+
+  input[type="password"] {
+  width: 100%;
+  }
+
+  input[type="submit"] {
+  width: 80%;
+  }
+}
+
+/*ここまで*/
