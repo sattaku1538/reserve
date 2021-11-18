@@ -11,18 +11,8 @@
         </p>
       </div>
       <div id="new_products">
-        <h3>新着商品</h3>
-        <div class="d-flex">
-          <% @products.each do |product| %>
-            <div id="product_content">
-              <%= attachment_image_tag product, :image, :fill, 200, 100, class:"mx-1" %>
-              <div class="mt-2">
-                <%= product.name %><br>
-                ¥<%= product.price %>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <h3 class="font-weight-bold">新着商品</h3>
+        <%= render 'public/products/index', products: @products %>
       </div>
       <div class="text-right">
         <%= link_to "全ての商品を見る >", public_products_path %>
