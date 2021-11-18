@@ -22,10 +22,10 @@
                 <%= shipping.name %>
             </td>
             <td>
-                <%= link_to "編集する",edit_public_shipping_path(shippings), class: "glyphicon glyphicon-pencil btn-sm btn-primary" %>
+                <%= link_to "編集する",edit_public_shipping_path(shippings), class: "btn-primary" %>
             </td>
             <td>
-                <%= link_to "削除する",public_shippings_path(shippings), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "glyphicon glyphicon-trash btn-sm btn-danger destroy_book_#{shippings.id}" %>
+                <%= link_to "削除する",public_shippings_path(shippings), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-danger" %>
             </td>
         </tr>
       <% end %>
