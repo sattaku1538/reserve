@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
 
-  before_action :set_item
+  before_action :set_item, only:[:update,:destroy]
 
   def index
     @cart_items = current_customer.cart_items.all

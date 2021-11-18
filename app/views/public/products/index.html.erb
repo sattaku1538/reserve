@@ -3,52 +3,8 @@
     <!--ジャンル検索窓のテンプレート-->
     <%= render 'public/products/category', categories: @categories %>
     <div class="col-md-9">
-      <h2><strong>商品一覧</strong></h2>(全<%= @products.count %>件)
+      <h2><strong>商品一覧</strong><small> (全<%= @products.count %>件)</small></h2>
         <%= render 'index', products: @products %>
-
-        <!--データがないので仮に表示->
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <div class="product-box">
-          <div class="image-box"></div>
-          <p><strong>商品名</strong></p>
-          <p><strong>￥0,000</strong></p>
-        </div>
-        <!--ここまで-->
-
       </div>
     </div>
   </div>
