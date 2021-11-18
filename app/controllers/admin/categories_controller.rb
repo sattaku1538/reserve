@@ -11,6 +11,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       redirect_to admin_categories_path
     else
+      @categories = Category.all
       render 'index'
     end
   end
