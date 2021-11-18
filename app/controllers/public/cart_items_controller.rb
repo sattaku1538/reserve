@@ -12,12 +12,10 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = current_customer.cart_items.new(cart_item_params)
 
-    # カート内に同じ商品があった場合は個数(quantity)だけ変更する
+    cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id])
     # カート内に同じ商品が存在したらtrue
-    if current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id]).present?
-        # 該当商品と一致するカート内の商品を変数に格納
-        cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id])
-        # カートに入れた個数足してquantityを更新
+    if cart_item.present?
+        # カートに入れた個数を足してquantityを更新
         cart_item.quantity += params[:cart_item][:quantity].to_i
         # 更新した内容を保存する
         cart_item.save
