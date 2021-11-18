@@ -7,10 +7,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+customers = Customer.create!([
+  {
+    email: 'xxx@gmail.com',
+    password: "kamoniku",
+    first_name: '太郎',
+    last_name: '山田',
+    first_name_ruby: 'たろう',
+    last_name_ruby: 'やまだ',
+    post_code: '5551234',
+    address: '東京',
+    telephone_number: '09012345678',
+    is_deleted: false,
+  }])
 categories = Category.create!([{ name: 'ケーキ' }, { name: '焼き菓子' }, { name: 'プリン' }, { name: 'キャンディ' }])
 
 Product.create!(name: 'cake1', discription: 'good', image: File.open("./app/assets/images/cake.jpeg"), category_id: categories.first.id, is_sold: true, price: 500)
 Product.create!(name: 'cake2', discription: 'good', image: File.open("./app/assets/images/cake.jpeg"), category_id: categories.first.id, is_sold: true, price: 500)
 Product.create!(name: 'cake3', discription: 'good', image: File.open("./app/assets/images/cake.jpeg"), category_id: categories.last.id, is_sold: true, price: 500)
 Product.create!(name: 'cake4', discription: 'good', image: File.open("./app/assets/images/cake.jpeg"), category_id: categories.last.id, is_sold: true, price: 500)
+
+Order.create!(customer_id: customers.first.id, post_code: "5551234", address: "大阪", address_name: "山田花子", postage: 800, total_price: 2000, payment_method: 1, status: 1)
