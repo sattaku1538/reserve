@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+,　class:"customer_adress", :size => "40*40"
+    <%= render "customer/shared/links" %>
+    <%= render "customer/shared/links" %>
