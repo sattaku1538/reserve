@@ -2,7 +2,7 @@
 	<div class="col-xs-offset-1 col-xs-8">
 		<h2 class="head-line text-center title_h2">マイページ</h2>
 		<p><strong class="information-link"><i class="far fa-user"></i>登録情報</strong>
-			<%= link_to " 編集する", edit_public_customer_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+			<%= link_to " 編集する", edit_public_customers_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
 			<%= link_to " パスワードを変更する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-warning" %>
 		</p>
 
@@ -10,19 +10,19 @@
 				<tbody>
 					<tr>
 						<td class="info col-xs-2">苗字</td>
-						<td class="text-left"><%= first_name(@customer) %></td>
+						<td class="text-left"><%= @customer.first_name %></td>
 					</tr>
 						<tr>
 						<td class="info col-xs-2">名前</td>
-						<td class="text-left"><%= last_name(@customer) %></td>
+						<td class="text-left"><%= @customer.last_name %></td>
 					</tr>
 					<tr>
 						<td class="info">カナ姓</td>
-						<td class="text-left"><%= first_name_ruby(@customer) %></td>
+						<td class="text-left"><%= @customer.first_name_ruby %></td>
 					</tr>
 					<tr>
 						<td class="info">カナ名</td>
-						<td class="text-left"><%= last_name_ruby(@customer) %></td>
+						<td class="text-left"><%= @customer.last_name_ruby %></td>
 					</tr>
 					<tr>
 						<td class="info">郵便番号</td>
