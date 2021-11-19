@@ -55,7 +55,7 @@ class Public::CartItemsController < ApplicationController
   def signed_in?
     unless customer_signed_in?
       # flash[:notice] = "ログインしてください"
-      redirect_to public_root_path
+      redirect_to new_customer_session_path
     end
   end
 end
