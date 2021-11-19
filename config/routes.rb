@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
     resources :products, only:[:index,:show]
     resources :cart_items, only:[:index,:create,:update,:destroy]
+
     resources :shippings, only:[:index, :create, :edit, :update, :destroy]
 
     # カート内商品の全削除

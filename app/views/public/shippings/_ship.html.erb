@@ -1,0 +1,34 @@
+<% if shippings.present? %>
+  <table class="table">
+    <thead>
+        <tr class="info">
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <% shippings.each do |shipping| %>
+        <tr class="shipping-tr" id="destroy-<%= shippings.id %>">
+            <td>
+                <%= shipping.post_code %>
+            </td>
+            <td class="text-left">
+                <%= shipping.address %>
+            </td>
+            <td class="text-left">
+                <%= shipping.name %>
+            </td>
+            <td>
+                <%= link_to "編集する",edit_public_shipping_path(shipping), class: "btn-primary" %>
+            </td>
+            <td>
+                <%= link_to "削除する",public_shippings_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-danger" %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

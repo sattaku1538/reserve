@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
 
 	def update
 	   if @customer.update(customer_params)
-	  	redirect_to customer_path
+	  	redirect_to public_customer_path
 	  	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
 	    else
 	     render "edit"
@@ -27,7 +27,7 @@ class Public::CustomersController < ApplicationController
 	def withdraw
     	@customer.update(is_deleted: true)
     	reset_session
-    	redirect_to root_path
+    	redirect_to public_root_path
 	end
 
 	private
