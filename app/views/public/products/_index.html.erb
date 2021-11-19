@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap justify-content-between">
+  <% products.each do |product| %>
+    <div class="my-3">
+      <%= link_to public_product_path(product.id) do %>
+        <%= attachment_image_tag product, :image, :fill, 180, 120 %>
+      <% end %>
+      <div class="mt-2">
+        <%= link_to public_product_path(product.id) do %>
+          <strong><%= product.name %><br></strong>
+        <% end %>
+        <strong>¥<%= product.tax_in_price %></strong>
+      </div>
+    </div>
+  <% end %>
+</div>

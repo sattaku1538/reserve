@@ -1,0 +1,89 @@
+<div class='container'>
+
+  <div class='row'>
+    <div class="col-lg-2" "col-xl-2">
+      <h1><div class="public_sign_up">新規会員登録</div></h1>
+    </div>
+  </div>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group row">
+            <label class= "col-md-3">名前</label>
+            <label class= "col-md-1">（姓）</label>
+            <div class="col-md-3"><%= f.text_field :first_name, autofocus: true %></div>
+            <label class= "col-md-1">（名）</label>
+            <div class="col-md-3"><%= f.text_field :last_name, autofocus: true %></div>
+          </div>
+
+           <div class="form-group row">
+            <label class= "col-md-3">フリガナ</label>
+            <label class= "col-md-1">（セイ）</label>
+            <div class="col-md-3"><%= f.text_field :first_name_ruby, autofocus: true %></div>
+            <label class= "col-md-1">（メイ）</label>
+            <div class="col-md-3"><%= f.text_field :last_name_ruby, autofocus: true %></div>
+          </div>
+
+          <div class="form-group row">
+            <label class= "col-md-3">メールアドレス</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class= "col-md-3">郵便番号（ハイフンなし）</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.text_field :post_code, autofocus: true %></div>
+            <label class= "col-md-1"></label>
+          </div>
+
+          <div class="form-group row">
+            <label class= "col-md-3">住所</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-8"><%= f.text_field :address, autofocus: true %></div>
+          </div>
+
+          <div class="form-group row">
+            <label class= "col-md-3">電話番号（ハイフンなし）</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.text_field :telephone_number, autofocus: true %></div>
+            <label class= "col-md-1"></label>
+          </div>
+
+           <div class="form-group row">
+            <label class= "col-md-3">パスワード（６文字以上）</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
+            <label class= "col-md-1"></label>
+          </div>
+
+           <div class="form-group row">
+            <label class= "col-md-3">パスワード（確認用）</label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
+            <label class= "col-md-1"></label>
+          </div>
+
+           <div class="form-group row">
+            <label class= "col-md-3"></label>
+            <label class= "col-md-1"></label>
+            <div class="col-md-3"><%= f.submit "新規登録", class:"box_sign_up" %></div>
+            <label class= "col-md-1"></label>
+          </div>
+        <% end %>
+
+  <div class='row'>
+    <div class="col-lg-2" "col-xl-2">
+      <h2><div class="admin_login">既に登録済みの方</div></h2>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <a href="#" tabindex="-1" aria-disabled="true">こちら</a>からログインしてください。
+    </div>
+  </div>
+
+</div>
