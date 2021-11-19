@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+
   def index
     @orders = current_customer.orders.all
   end
@@ -14,7 +15,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = current_user.cart_items.all
-    # 住所選択で分岐(0:メインの住所,1:登録済みの住所,2:新規住所) 
+    # 住所選択で分岐(0:メインの住所,1:登録済みの住所,2:新規住所)
     if select_address == 0
       @order.post_code = current_customer.post_code
       @order.address = current_customer.address
@@ -28,7 +29,7 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
     end
   end
-  
+
   def create
     # 入力された内容をorderに保存
     @order = current_customer.orders.new(order_params)
@@ -41,15 +42,15 @@ class Public::OrdersController < ApplicationController
       @order_item.price = cart_item.product.tax_in_price
       @order_item.quantity = cart_item.quantity
       @order_item.save
-    end 
+    end
     redirect_to public_orders_complete_path
   end
-  
+
   def complete
   end
-  
+
   private
-  
+
   def order_params
       params.require(:order).permit(:post_code, :address, :address_name, :payment_method)
   end

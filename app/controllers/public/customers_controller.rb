@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
 
     before_action :set_customer
-    
+
     def set_customer
     @customer = current_customer
     end
@@ -33,7 +33,7 @@ class Public::CustomersController < ApplicationController
 	private
 
 	def customer_params
-		params.require(:customer).permit(:email, :first_name, :last_name, :first_name_ruby, :last_name_ruby, :post_code, :address, :telephine_number)
+		params.require(:customer).permit(:email, :first_name, :last_name, :first_name_ruby, :last_name_ruby, :post_code, :address, :telephone_number)
     end
 
 end
