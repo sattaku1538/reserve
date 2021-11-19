@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
 
 	def update
 	   if @customer.update(customer_params)
-	  	redirect_to public_customer_path
+	  	redirect_to public_customers_path
 	  	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
 	   else
 	     render "edit"
