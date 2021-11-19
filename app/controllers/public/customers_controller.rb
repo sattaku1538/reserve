@@ -16,9 +16,9 @@ class Public::CustomersController < ApplicationController
 	   if @customer.update(customer_params)
 	  	redirect_to public_customer_path
 	  	# フラッシュメッセージいれる？notice: "You have updated your account successfully."
-	    else
+	   else
 	     render "edit"
-      end
+       end
     end
 
 	def unsubscribe

@@ -4,7 +4,7 @@
 
     <h2 class="head-line title_h2 text-center">登録情報編集</h2>
 
-    <%= form_with(model:@customer, url:customer_path, local: true ,method: :put) do |f| %>
+    <%= form_with(model:@customer, url:public_customers_path, local: true ,method: :put) do |f| %>
       <%= render "layouts/error_messages", resource: @customer %>
 
       <div class="col-xs-10">
@@ -38,11 +38,11 @@
 
       <div class="actions col-xs-9 col-xs-offset-3">
         <%= f.submit "編集内容を保存する", class: "btn btn-primary save col-xs-6" %>
-        <%= link_to '退会する', customers_path, class: "glyphicon glyphicon-tint btn btn-danger"%>
+        <%= link_to '退会する', public_customers_unsubscribe_path, class: "glyphicon glyphicon-tint btn btn-danger"%>
       </div>
     <% end %>
     <div class="col-xs-12">
-      <%= link_to "戻る", customer_path, class: "glyphicon glyphicon-home btn btn-info" %>
+      <%= link_to "戻る", public_customers_path, class: "glyphicon glyphicon-home btn btn-info" %>
     </div>
   </div>
 </div>
