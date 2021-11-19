@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :order_details, only:[:update]
     end
     resources :categories, only:[:index, :create, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
   end
   namespace :public do
     root to: 'homes#top'
