@@ -4,9 +4,8 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items.all
-    @items = Products.find(@cart_items.product_id)
     # カート内商品の合計金額を算出
-    @total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @total_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
   end
 
   def create
@@ -19,9 +18,9 @@ class Public::CartItemsController < ApplicationController
         cart_item.quantity += params[:cart_item][:quantity].to_i
         # 更新した内容を保存する
         cart_item.save
-        redirect_back(fallback_location: public_cart_items_path)
+        redirect_to public_cart_items_path
     elsif @cart_item.save
-        redirect_back(fallback_location: public_cart_items_path)
+        redirect_to public_cart_items_path
     else
         render 'public/products/show'
     end
