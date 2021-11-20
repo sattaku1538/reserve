@@ -23,21 +23,21 @@
     		        <td class="text-left">
     		          <%= order.post_code %><br>
     		          <%= order.address %><br>
-    		          <%= order.name %>
+    		          <%= order.address_name %>
     		        </td>
     		        <td>
     		          <% order.order_details.each do |order_detail| %>
-    		          	<%= order_detail.products.name %><br>
+    		          	<%= order_detail.product.name %><br>
     		          <% end %>
     		        </td>
-    		        <td class="text-right">
-    		          <%= order.total_price %>円
+    		        <td>
+    		          <%= order.total_price.to_s(:delimited) %>円
     		        </td>
     		        <td>
     		          <%= order.status %>
     		        </td>
          	      <td>
-       	          <%= link_to "注文詳細", customers_order_path(order), class: "btn-success" %>
+       	          <%= link_to "注文詳細", public_order_path(order) %>
        	        </td>
               </tr>
             <% end %>

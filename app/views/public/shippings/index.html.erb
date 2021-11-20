@@ -8,8 +8,8 @@
         <h2 class="text-center">配送先登録/一覧</h2>
         
         <!--%= form_with(model: @shippings, :url => {:controller => "customer/shippings"}) do |f| %>-->
-        <%= form_with(model:[public, @shippings], local: true) do |f| %>
-                <div class="form-group col-xs-12">
+        <%= form_with model: @shippings, local: true do |f| %>
+               <div class="form-group col-xs-12">
                     <%= f.label :"郵便番号(ハイフンなし)" %>
                     <%= f.text_field :post_code %>
                 </div>
