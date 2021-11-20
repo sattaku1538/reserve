@@ -10,7 +10,9 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @addresses = current_customer.shippings.all
+    @shippings = current_customer.shippings.all
+    @name = current_customer.last_name + current_customer.first_name
+    @address = "〒#{current_customer.post_code}" + current_customer.address
   end
 
   def confirm
@@ -21,10 +23,10 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
     elsif select_address == 1
-      @address = Shipping.find(params[:order][:address_id])
-      @order.post_code = @address.post_code
-      @order.address = @address.address
-      @order.name = @address.name
+      @shipping = Shipping.find(params[:order][:address_id])
+      @order.post_code = @shipping.post_code
+      @order.address = @shipping.address
+      @order.name = @shipping.name
     elsif select_address == 2
       @order = Order.new(order_params)
     end
