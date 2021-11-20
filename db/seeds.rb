@@ -44,7 +44,7 @@ Customer.all.each do |customer|
   customer.orders.create!(
     post_code: "5551234", 
     address: "大阪",
-    address_name: customer.name, 
+    address_name: customer.last_name + customer.first_name, 
     postage: 800, 
     total_price: 2000, 
     payment_method: 1, 
@@ -52,11 +52,11 @@ Customer.all.each do |customer|
   )
 end
 
-Order.all.each do |order|
-  order.order_details.create!(
-    product_id: 1,
+Product.all.each do |product|
+  product.order_details.create!(
+    order_id: 1,
     quantity: 3,
-    price: 500*3,
+    price: product.price * 3,
     making_status: 0,
     )
 end
