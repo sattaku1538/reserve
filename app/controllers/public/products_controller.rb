@@ -1,6 +1,6 @@
 class Public::ProductsController < ApplicationController
   def index
-    @products = Product.where(is_sold: true)
+    @products = Product.where(is_sold: true).page(params[:page]).per(8)
     @categories = Category.all
   end
 

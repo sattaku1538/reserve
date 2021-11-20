@@ -1,6 +1,6 @@
-<div class="d-flex flex-wrap justify-content-between">
+<div class="d-flex flex-wrap">
   <% products.each do |product| %>
-    <div class="my-3">
+    <div class="my-3 mx-2">
       <%= link_to public_product_path(product.id) do %>
         <%= attachment_image_tag product, :image, :fill, 180, 120 %>
       <% end %>

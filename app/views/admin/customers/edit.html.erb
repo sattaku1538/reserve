@@ -1,0 +1,78 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-lg-2 col-xl-2">
+      <h2><div class="public_login">Log in</div></h2>
+     </div>
+  </div>
+
+<h2><%= @customer.first_name + @customer.last_name %>の会員情報編集</h2>
+<%= form_with model:@customer, local:true do |f| %>
+  <div class="form-group row">
+    <label class= "col-md-3">名前</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :first_name %></div>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :last_name %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">フリガナ</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :first_name_ruby %></div>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :last_name_ruby %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">郵便番号（ハイフンなし）</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :post_code %></div>
+    <label class= "col-md-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">住所</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-8"><%= f.text_field :address %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">メールアドレス</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.email_field :email %></div>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">電話番号（ハイフンなし）</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.text_field :telephone_number %></div>
+    <label class= "col-md-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3">会員ステータス</label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3">
+                          <%= f.radio_button :is_deleted, false %>
+                          <%= f.label :is_deleted, "有効", {value: false, style: "display: inline-block;"} %>
+                          <%= f.radio_button :is_deleted, true %>
+                          <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
+    </div>
+    <label class= "col-md-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-md-3"></label>
+    <label class= "col-md-1"></label>
+    <div class="col-md-3"><%= f.submit "変更を保存" %></div>
+    <label class= "col-md-1"></label>
+  </div>
+
+
+<% end %>
+</div>
+
+
+
