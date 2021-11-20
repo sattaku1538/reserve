@@ -5,6 +5,12 @@ class Product < ApplicationRecord
 
   belongs_to :category
   
+  validates :name, presence: true
+  validates :discription, presence: true
+  validates :category, presence: true
+  validates :price, presence: true
+  validates :image, presence: true
+  
   # refileを使用して商品画像をアップする
   attachment :image
   

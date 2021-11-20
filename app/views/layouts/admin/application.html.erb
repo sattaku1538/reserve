@@ -19,11 +19,7 @@
           </button>
           <div class="collapse navbar-collapse flex-column" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2">
-              <% if customer_signed_in? %>
-                <%= render "layouts/customer_signed" %>
-              <% else %>
-                <%= render 'layouts/no_signed' %>
-              <% end %>
+              <%= render "layouts/admin_signed" %>
             </ul>
             <form class="d-flex ml-auto">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
