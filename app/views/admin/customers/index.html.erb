@@ -23,7 +23,7 @@
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.id %></td>
-              <td><%= customer.first_name %><%= customer.last_name %></td>
+              <td><%= customer.first_name + customer.last_name %></td>
               <td><%= customer.email %></td>
               <% if customer.is_deleted %>
                 <td class="text-success">退会</td>
