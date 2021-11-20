@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :set_order, only: %i[show update]
   
   def index
-    @orders = Order.all.order(created_at: :DESC)
+    @orders = Order.page(params[:page]).reverse_order
   end
 
   def show
