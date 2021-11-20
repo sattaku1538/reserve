@@ -71,7 +71,7 @@
         </table>
     </div>
     <% if customer_signed_in? %>
-      <%= link_to "注文履歴一覧へ戻る", public_order_path, class: "btn btn-info btn-lg order-index-back" %>
+      <%= link_to "注文履歴一覧へ戻る", public_orders_path, class: "btn btn-info btn-lg order-index-back" %>
     <% else %>
       <%= link_to "会員詳細へ戻る", public_customer_path, class: "btn btn-info order-index-back" %>
     <% end %>
