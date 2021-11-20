@@ -1,4 +1,5 @@
 <div class="container mt-3">
   <h3>ジャンル編集</h3>
-  <%= render 'form', category: @category %>
+  <%= render 'layouts/validation', instance: @category %>
+  <%= render 'form', category: @category, submit: @submit %>
 </div>
