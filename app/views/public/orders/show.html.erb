@@ -14,7 +14,7 @@
               　<th class="info">配送先</th>
                 <td class="text-left"><%= @order.post_code %><br>
                 	  <%= @order.address %><br>
-                	  <%= @order.name %>
+                	  <%= @order.address_name %>
                 </td>
               </tr>
               <tr>
@@ -34,7 +34,7 @@
         	<table class="table">
             <tr>
               <th>商品合計</th>
-              <td class="text-right"><%= total_price(@order_details) %>円</td>
+              <td class="text-right"><%= price(@order_details) %>円</td>
             </tr>
             <tr>
               <th>配送料</th>
