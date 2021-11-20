@@ -62,7 +62,7 @@
         	<% @order_details.each do |order_detail| %>
             <tr>
   	        <td><%= order_detail.product.name %></td>
-  	        <td><%= order_detail.price %>円</td>
+  	        <td><%= order_detail.product.price %>円</td>
   	        <td><%= order_detail.quantity %>個</td>
   	        <td><%= @order.total_price %>円</td>
             </tr>
