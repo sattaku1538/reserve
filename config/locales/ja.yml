@@ -16,8 +16,6 @@ ja:
       ready: "製作待ち"
       making: "製作中"
       finish: "製作完了"
-      
-ja:
   activerecord:
     errors:
       messages:
