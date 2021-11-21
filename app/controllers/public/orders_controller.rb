@@ -49,14 +49,18 @@ class Public::OrdersController < ApplicationController
     @order.save
 
     # カートの商品をorder_detailに保存
-    @cart_items.each do |cart_item|
+    @cart_items.each_with_index do |cart_item, i|
       @order_detail = @order.order_details.new
       @order_detail.product_id = cart_item.product_id
       @order_detail.price = cart_item.product.tax_in_price
       @order_detail.quantity = cart_item.quantity
       @order_detail.making_status = 0
       @order_detail.save
+      if i == @cart_items.size - 1
+        @cart_items.destroy_all
+      end
     end
+
     redirect_to public_orders_complete_path
   end
 
