@@ -1,11 +1,5 @@
 class ChangeStatusOfOrderDetails < ActiveRecord::Migration[5.2]
   def change
-    def up
-      change_column :orderdetails, :status, :integer, default: '0'
-    end
-
-    def down
-      change_column :orderdetails, :status, :integer
-    end
+    change_column_default :order_details, :status, default: 0
   end
 end
