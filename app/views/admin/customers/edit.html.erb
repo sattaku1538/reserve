@@ -1,12 +1,12 @@
 <div class='container'>
   <div class='row'>
     <div class="col-lg-2 col-xl-2">
-      <h2><div class="public_login">Log in</div></h2>
+      <h5><div class="heading">Log in</div></h5>
      </div>
   </div>
 
-<h2><%= @customer.first_name + @customer.last_name %>の会員情報編集</h2>
-<%= form_with model:@customer, local:true do |f| %>
+<h5><%= @customer.first_name + @customer.last_name %>の会員情報編集</h5>
+<%= form_with model:@customer, url: admin_customer_path(@customer.id), method: :patch, local:true do |f| %>
   <div class="form-group row">
     <label class= "col-md-3">名前</label>
     <label class= "col-md-1"></label>
