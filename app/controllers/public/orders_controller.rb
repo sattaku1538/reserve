@@ -19,6 +19,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    # パラメータから選択された支払方法を取得
     @payment_method = params[:order][:payment_method]
 
     # 住所選択で分岐(0:メインの住所,1:登録済みの住所,2:新規住所)
@@ -46,22 +47,25 @@ class Public::OrdersController < ApplicationController
     @order.postage = @postage
     @order.total_price = @amount_billed
     @order.status = 0
-    @order.save
 
-    # カートの商品をorder_detailに保存
-    @cart_items.each_with_index do |cart_item, i|
-      @order_detail = @order.order_details.new
-      @order_detail.product_id = cart_item.product_id
-      @order_detail.price = cart_item.product.tax_in_price
-      @order_detail.quantity = cart_item.quantity
-      @order_detail.making_status = 0
-      @order_detail.save
-      if i == @cart_items.size - 1
-        @cart_items.destroy_all
+    if @order.save
+      # カートの商品をorder_detailに保存
+      @cart_items.each_with_index do |cart_item, i|
+        @order_detail = @order.order_details.new
+        @order_detail.product_id = cart_item.product_id
+        @order_detail.price = cart_item.product.tax_in_price
+        @order_detail.quantity = cart_item.quantity
+        @order_detail.making_status = 0
+        @order_detail.save
+        if i == @cart_items.size - 1
+          @cart_items.destroy_all
+        end
       end
+      redirect_to public_orders_complete_path
+    else
+      #失敗したら新規注文画面に戻る
+      redirect_to new_public_order_path
     end
-
-    redirect_to public_orders_complete_path
   end
 
   def complete
