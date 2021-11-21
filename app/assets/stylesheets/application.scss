@@ -92,3 +92,37 @@
 }
 
 // ここまで
+
+// admin/products/index プラスボタン
+a.btn--circle {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+// ここまで
+
+// homes_top
+#main_visual {
+  background-image: url("images/cheesecake.jpg");
+  background-size: cover;
+  background-position: bottom;
+  height:335px;
+  width:650px;
+}
+#main_visual p {
+  background-color: rgba( 255, 255, 255, 0.5); 
+  padding: 20px;
+  margin: auto 0;
+}
+
+#about_visual {
+  background-image: url("images/cake-black.jpeg");
+  background-size: cover;
+  background-position: bottom;
+  width:500px;
+  height:200px
+}
