@@ -19,13 +19,7 @@
 @import 'font-awesome';
 
 /*管理者のログイン*/
-.admin_login {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
+
 .login_box {
   width: 100%;
 }
@@ -41,13 +35,7 @@
 /*ここまで*/
 
 /*顧客のログイン*/
-.public_login {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
+
 .box_login{
   display: inline-block;
   background-color: #0099FF;
@@ -58,14 +46,6 @@
 /*ここまで*/
 
 /*管理者の新規登録*/
-
-.public_sign_up {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
 
 .box_sign_up{
   display: inline-block;

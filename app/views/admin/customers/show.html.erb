@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-lg-2　col-xl-2">
-      <h2><div class="public_login">Log in</div></h2>
+      <h5><div class="heading">Log in</div></h5>
      </div>
   </div>
 
@@ -9,8 +9,8 @@
   <div class="form-group row">
     <label class= "col-md-3">会員ID</label>
     <label class= "col-md-1"></label>
-    <div class="col-md-3"></div>
-    <label class= "col-md-1"><%= @customer.id %></label>
+    <div class="col-md-3"><%= @customer.id %></div>
+    <label class= "col-md-1"></label>
     <div class="col-md-3"></div>
   </div>
 
@@ -62,7 +62,7 @@
     <label class= "col-md-3">会員ステータス</label>
     <label class= "col-md-1"></label>
     <div class="col-md-3">
-      <% if customer.is_deleted %>
+      <% if @customer.is_deleted %>
         <div class="text-success">退会</div>
       <% else %>
         <div class="text-muted">有効</div>
@@ -75,7 +75,7 @@
     <label class= "col-md-3"></label>
     <label class= "col-md-1"></label>
     <div class="col-md-3">
-      <%= link_to edit_admin_customer_id_path do %>
+      <%= link_to edit_admin_customer_path(@customer.id) do %>
         <button type="button" class="btn btn-success">編集する</button>
       <% end %>
     </div>
