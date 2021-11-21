@@ -33,9 +33,9 @@
           <tr>
             <td>販売ステータス</td>
             <% if @product.is_sold %>
-              <td class="text-success">販売中</td>
+              <td class="text-success font-weight-bold">販売中</td>
             <% else %>
-              <td class="text-muted">販売停止中</td>
+              <td class="text-muted font-weight-bold">販売停止中</td>
             <% end %>
           </tr>
         </tbody>
