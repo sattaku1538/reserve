@@ -1,14 +1,10 @@
 <div class="container mt-4">
-    <div class="float-left cart-heading" style="width:230px;"><h5 class="text-center">ショッピングカート</h5></div>
-    <div class="float-right mb-3">
-      <%= link_to "カートを空にする", public_cart_items_path, method: :delete, class:"btn btn-danger" %>
+  <div class="d-flex justify-content-between mb-3">
+    <h5>
+      <span class="heading">ショッピングカート</span>
+    </h5>
+    <%= link_to "カートを空にする", public_cart_items_path, method: :delete, class:"btn btn-danger btn-sm" %>
   </div>
-  <!--<div class="d-flex justify-content-between mb-3">-->
-  <!--  <h5>-->
-  <!--    <span class="heading">ショッピングカート</span>-->
-  <!--  </h5>-->
-  <!--  <%= link_to "カートを空にする", public_cart_items_path, method: :delete, class:"btn btn-danger btn-sm" %>-->
-  <!--</div>-->
   <table class="table table-bordered cart-table">
     <thead>
       <th>商品名</th>
