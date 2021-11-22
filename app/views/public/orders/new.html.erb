@@ -10,7 +10,7 @@
       <%= f.radio_button :payment_method, Order.payment_methods.key(0), class:"form-check-input" %>
       <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card], class:"form-check-label" %>
     </div>
-    <div class="form-check ml-4">
+    <div class="ml-2 pl-1">
   　　<%= f.radio_button :payment_method, Order.payment_methods.key(1), class:"form-check-input" %>
       <%= f.label :payment_method, Order.payment_methods_i18n[:transfer], class:"form-check-label" %>
     </div>

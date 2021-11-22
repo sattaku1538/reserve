@@ -37,6 +37,10 @@ class Public::OrdersController < ApplicationController
       @order.address_name = @shipping.name
     when "2" then
       @order = Order.new(order_params)
+      if @order.present?
+        redirect_to new_public_order_path
+      else
+      end
     end
 
   end
@@ -57,6 +61,7 @@ class Public::OrdersController < ApplicationController
         @order_detail.quantity = cart_item.quantity
         @order_detail.making_status = 0
         @order_detail.save
+        # 最後の処理でカート内商品全削除
         if i == @cart_items.size - 1
           @cart_items.destroy_all
         end
