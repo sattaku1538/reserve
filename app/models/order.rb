@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :customer
 
-  validates :customer_id, :address,:address_name, :postage, :total_price, :payment_method, presence: true
+  validates :customer_id,:post_code, :address,:address_name, :postage, :total_price, :payment_method, presence: true
 	validates :post_code, length: {is: 7}, numericality: { only_integer: true }
 	validates :postage, :total_price, numericality: { only_integer: true }
 
