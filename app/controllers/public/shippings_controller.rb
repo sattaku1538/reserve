@@ -8,7 +8,7 @@ class Public::ShippingsController < ApplicationController
   def create
     @shipping = current_customer.shippings.new(shipping_params)
     if @shipping.save
-      redirect_to public_shippings_path
+      # redirect_to public_shippings_path
     else
       @shippings = current_customer.shippings.all
       render 'index'
