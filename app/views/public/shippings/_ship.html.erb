@@ -1,3 +1,8 @@
+<% flash.each do |key, value| %>
+<p id="<%= key %>"><%= value %></p>
+<% end %>
+
+
 <% if shippings.present? %>
   <table class="table table-hover table-bordered">
     <thead>
@@ -24,7 +29,7 @@
                 <%= link_to "編集する",edit_public_shipping_path(shipping), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
             </td>
             <td>
-                <%= link_to "削除する",public_shippings_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "glyphicon glyphicon-trash btn-sm btn-danger" %>
+                <%= link_to "削除する",public_shippings_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "glyphicon glyphicon-trash btn-sm btn-danger" %>
             </td>
         
     </tbody>
