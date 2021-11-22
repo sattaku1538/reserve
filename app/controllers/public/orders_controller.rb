@@ -1,7 +1,8 @@
 class Public::OrdersController < ApplicationController
 
   before_action :set_name, only:[:new,:confirm]
-  before_action :set_item, :set_price, only:[:confirm,:create]
+  before_action :set_item, only:[:new,:confirm,:create]
+  before_action :set_price, only:[:confirm,:create]
 
   def index
     @orders = current_customer.orders.all
@@ -13,6 +14,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    if @cart_items.empty?
+      redirect_to public_cart_items_path
+      flash[:notice] = "カートに商品が入っていません。"
+    end
     @order = Order.new
     @shippings = current_customer.shippings.all
     @address = "〒#{current_customer.post_code}" + current_customer.address
@@ -37,12 +42,12 @@ class Public::OrdersController < ApplicationController
       @order.address_name = @shipping.name
     when "2" then
       @order = Order.new(order_params)
-      if @order.present?
+      # 入力が一つでも欠けていたら新規注文画面に戻る
+      if @order.post_code.blank? or @order.address.blank? or @order.address_name.blank?
         redirect_to new_public_order_path
-      else
+        flash[:notice]="※入力が空白の項目があります※"
       end
     end
-
   end
 
   def create
