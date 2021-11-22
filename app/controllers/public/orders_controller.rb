@@ -37,6 +37,10 @@ class Public::OrdersController < ApplicationController
       @order.address_name = @shipping.name
     when "2" then
       @order = Order.new(order_params)
+      if @order.present?
+        redirect_to new_public_order_path
+      else
+      end
     end
 
   end
