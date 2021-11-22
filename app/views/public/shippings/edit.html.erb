@@ -1,9 +1,10 @@
 <div class="row">
     <div class="col-xs-12">
-        <h2 class="text-center">配送先編集</h2>
+        <h5><span class="heading">配送先編集</span></h5> 
 
-        <%= form_with(model: @shippings, url:public_shipping_path, local: true ,method: :patch) do |f| %>
-
+        <%= form_with model: (:publi @shippings) local: true ,method: :patch do |f| %>
+        
+                <div class="shippinges col-xs-10">
                 <div class="form-group col-xs-12">
                     <%= f.label :"郵便番号(ハイフンなし)" %>
                     <%= f.text_field :post_code %>
@@ -19,12 +20,16 @@
                     <%= f.text_field :name %>
                 </div>
                 <div class="form-group col-xs-12">
-                    <%= f.submit '編集する'%>
+                    <%= f.submit '編集する' %>
                 </div>
             </div>
         <% end %>
-            <div class="col-xs-12">
-                <%= link_to "配送先登録/一覧へ戻る", public_shippings_path, class: "btn btn-info" %>
-            </div>
     </div>
 </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <%= link_to "配送先登録/一覧へ戻る", public_shippings_path %>
+                </div>
+            </div>
+            
+           
