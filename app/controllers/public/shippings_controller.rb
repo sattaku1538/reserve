@@ -29,9 +29,9 @@ class Public::ShippingsController < ApplicationController
   
   def destroy
     @shipping.destroy
-    @shipping = current_customer.shippings
+    @shipping = current_customer.shipping
     flash[:notice] =  "配送先を削除しました。"
-    redirect_to public_shippings_path(params[:id])
+    redirect_to public_shipping_path
   end
   
   
