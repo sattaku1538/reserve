@@ -12,16 +12,18 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = current_customer.cart_items.new(cart_item_params)
 
-    cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id])
+    cart_item = current_customer.cart_items.find_by(product_id: @cart_item.product_id)
     # カート内に同じ商品が存在したらtrue
     if cart_item.present?
         # カートに入れた個数を足してquantityを更新
-        cart_item.quantity += params[:cart_item][:quantity].to_i
+        cart_item.quantity += @cart_item.quantity.to_i
         # 更新した内容を保存する
         cart_item.save
         redirect_to public_cart_items_path
+        flash[:notice] = "カートに商品を追加しました！"
     elsif @cart_item.save
         redirect_to public_cart_items_path
+        flash[:notice] = "カートに商品を追加しました！"
     else
         render 'public/products/show'
     end
@@ -30,16 +32,19 @@ class Public::CartItemsController < ApplicationController
   def update
     @item.update(cart_item_params)
     redirect_back(fallback_location: public_cart_items_path)
+    flash[:notice] = "商品の個数を変更しました！"
   end
 
   def destroy
     @item.destroy
     redirect_back(fallback_location: public_cart_items_path)
+    flash[:notice] = "商品を削除しました。"
   end
 
   def destroy_all
     current_customer.cart_items.destroy_all
     redirect_back(fallback_location: public_cart_items_path)
+    flash[:notice] = "カートの商品をすべて削除しました。"
   end
 
   private
@@ -54,7 +59,6 @@ class Public::CartItemsController < ApplicationController
 
   def signed_in?
     unless customer_signed_in?
-      # flash[:notice] = "ログインしてください"
       redirect_to new_customer_session_path
     end
   end

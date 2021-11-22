@@ -5,6 +5,10 @@
     </h5>
     <%= link_to "カートを空にする", public_cart_items_path, method: :delete, class:"btn btn-danger btn-sm" %>
   </div>
+
+  <!-- カートの更新時、メッセージ表示 -->
+  <p class="ml-4" style="color:green;"><%= flash[:notice] %></p>
+
   <table class="table table-bordered cart-table">
     <thead>
       <th>商品名</th>
