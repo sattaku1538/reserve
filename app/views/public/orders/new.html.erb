@@ -3,6 +3,9 @@
     <span class="heading">　注文情報入力　</span>
   </h5>
 
+  <!-- 新しい住所選択時、入力に空白があった場合メッセージを表示 -->
+  <p class="ml-4" style="color:red;"><%= flash[:notice] %></p>
+
   <%= form_with(model: @order, url: public_orders_confirm_path, method: :post, local: true) do |f| %>
     <strong>支払方法</strong>
 
@@ -34,8 +37,8 @@
       <%= f.select :address_id, options_from_collection_for_select(@shippings, :id, :full_address), class:"form-control" %>
     </div>
 
+    <!-- 新しい住所 -->
     <div class="form-check ml-4">
-      <!-- 新しい住所 -->
       <%= f.radio_button :select_shipping, "2", class:"form-check-input" %>
       <%= f.label :select_shipping, "新しいお届け先", class:"form-check-label" %>
     </div>

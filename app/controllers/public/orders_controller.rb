@@ -39,6 +39,7 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       if @order.present?
         redirect_to new_public_order_path
+        flash[:notice]="※入力が空白の項目があります※"
       else
       end
     end
