@@ -1,5 +1,7 @@
 <div class="container mt-3">
-  <h3>商品詳細</h3>
+  <h5>
+    <span class="heading">商品詳細</span>
+  </h5>
   <div class="row mt-5">
     <div class="col-4">
       <%= attachment_image_tag @product, :image, :fill, 250, 150 %>
@@ -31,9 +33,9 @@
           <tr>
             <td>販売ステータス</td>
             <% if @product.is_sold %>
-              <td class="text-success">販売中</td>
+              <td class="text-success font-weight-bold">販売中</td>
             <% else %>
-              <td class="text-muted">販売停止中</td>
+              <td class="text-muted font-weight-bold">販売停止中</td>
             <% end %>
           </tr>
         </tbody>

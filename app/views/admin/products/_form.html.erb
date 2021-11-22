@@ -21,7 +21,7 @@
         <td><%= f.label :price, "税抜価格" %></td>
         <td>
           <div class="form-inline">
-            <%= f.text_field :price, placeholder: "1000", class:"form-control" %>円
+            <%= f.text_field :price, placeholder: "1,000", class:"form-control" %>円
           </div>
         </td>
       </tr>
@@ -36,5 +36,7 @@
       </tr>
     </tbody>
   </table>
-  <%= f.submit button_text, class:"btn btn-success" %>
+  <div class="text-center">
+    <%= f.submit button_text, class:"btn btn-success btn-lg" %>
+  </div>
 <% end %>

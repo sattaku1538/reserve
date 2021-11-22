@@ -1,14 +1,16 @@
 <div class="container mt-3">
-  <h3>ジャンル一覧・追加</h3>
+  <h5>
+    <span class="heading">ジャンル一覧・追加</span>
+  </h5>
   <%= render 'layouts/validation', instance: @category %>
   <%= render 'form', category: @category, submit: @submit %>
   <div class="row mt-5">
     <div class="col-5 mr-auto">
       <table class="table" >
-        <thead align="center">
+        <thead class="thead-light" align="center">
           <tr>
-            <td class="font-weight-bold" width="200">ジャンル</td>
-            <td width="100"></td>
+            <th width="20%">ジャンル</td>
+            <th width="10%"></td>
           </tr>
         </thead>
         <tbody>

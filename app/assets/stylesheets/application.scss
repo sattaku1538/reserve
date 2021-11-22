@@ -19,13 +19,7 @@
 @import 'font-awesome';
 
 /*管理者のログイン*/
-.admin_login {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
+
 .login_box {
   width: 100%;
 }
@@ -41,13 +35,7 @@
 /*ここまで*/
 
 /*顧客のログイン*/
-.public_login {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
+
 .box_login{
   display: inline-block;
   background-color: #0099FF;
@@ -58,14 +46,6 @@
 /*ここまで*/
 
 /*管理者の新規登録*/
-
-.public_sign_up {
- display: inline-block;
- background-color: #acabab;
- border-radius: 3px;
- font-size: 1rem;
- margin-top: 50px;
-}
 
 .box_sign_up{
   display: inline-block;
@@ -93,3 +73,56 @@
 }
 
 /*ここまで*/
+
+// kaminari
+.pagination {
+  justify-content: center;
+}
+
+.pagination span {
+  margin: 0 3px;
+}
+
+// ここまで
+
+// 見出し
+.heading {
+  background-color: #eee;
+  padding: 0 20px;
+}
+
+// ここまで
+
+// admin/products/index プラスボタン
+a.btn--circle {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+// ここまで
+
+// homes_top
+#main_visual {
+  background-image: url("images/cheesecake.jpg");
+  background-size: cover;
+  background-position: bottom;
+  height:335px;
+  width:650px;
+}
+#main_visual p {
+  background-color: rgba( 255, 255, 255, 0.5); 
+  padding: 20px;
+  margin: auto 0;
+}
+
+#about_visual {
+  background-image: url("images/cake-black.jpeg");
+  background-size: cover;
+  background-position: bottom;
+  width:500px;
+  height:200px
+}
