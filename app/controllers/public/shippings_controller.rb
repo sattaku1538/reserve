@@ -1,5 +1,6 @@
 class Public::ShippingsController < ApplicationController
   before_action :set_shipping, only: %i[edit update destroy]
+  
   def index
     @shippings = current_customer.shippings.all
     @shipping = Shipping.new
