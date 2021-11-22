@@ -28,7 +28,7 @@
             <% end %>
           </td>
           <td class="align-middle">
-            <%= cart_item.subtotal %>
+            <%= cart_item.subtotal.to_s(:delimited) %>
           </td>
           <td class="align-middle text-center">
             <%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete, class:"btn btn-danger" %>
@@ -44,7 +44,7 @@
     <div class="offset-7 d-flex col-md-2">
       <table class="table table-bordered price-table">
         <th>合計金額</th>
-        <td><%= @total_price %></td>
+        <td><%= @total_price.to_s(:delimited) %></td>
       </table>
     </div>
   </div>

@@ -24,7 +24,7 @@
               <%= cart_item.quantity %>
             </td>
             <td class="align-middle">
-              <%= cart_item.subtotal %>
+              <%= cart_item.subtotal.to_s(:delimited) %>
             </td>
           </tr>
         <% end %>
@@ -37,11 +37,11 @@
       </tr>
       <tr>
         <td class="heading">商品合計</td>
-        <td><%= @total_price %></td>
+        <td><%= @total_price.to_s(:delimited) %></td>
       </tr>
       <tr>
         <td class="heading">請求金額</td>
-        <td><%= @amount_billed %></td>
+        <td><%= @amount_billed.to_s(:delimited) %></td>
       </tr>
     </table>
   </div>
