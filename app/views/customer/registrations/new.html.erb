@@ -6,13 +6,7 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-        <%= form_for(resource, as: resource_name, url: customer_registration_path) do |f| %>
-          <%= render "customer/shared/error_messages", resource: resource %>
-
-=======
         <%= form_with model:@customer, url: customer_registration_path, local: true do |f| %>
->>>>>>> 1afabcec4f1aa2b1160b264f890d87c6ca11153a
           <div class="form-group row">
             <label class= "col-md-3">名前</label>
             <label class= "col-md-1">（姓）</label>
@@ -67,7 +61,7 @@
            <div class="form-group row">
             <label class= "col-md-3">パスワード（確認用）</label>
             <label class= "col-md-1"></label>
-            <div class="col-md-3"><%= f.password_field :password_confirmation, autocomplete: "current-password" %></div>
+            <div class="col-md-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
             <label class= "col-md-1"></label>
           </div>
 
