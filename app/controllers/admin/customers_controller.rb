@@ -1,15 +1,15 @@
 class Admin::CustomersController < Admin::ApplicationController
+
+  before_action :set_customer, only:[:show,:edit,:update]
+
   def index
     @customers = Customer.all.page(params[:page]).reverse_order
   end
   def show
-    @customer = Customer.find(params[:id])
   end
   def edit
-    @customer = Customer.find(params[:id])
   end
   def update
-    @customer = Customer.find(params[:id])
     @customer.update(customer_params)
     redirect_to admin_customer_path(@customer.id)
   end
@@ -17,6 +17,10 @@ class Admin::CustomersController < Admin::ApplicationController
 
   def customer_params
     params.require(:customer).permit(:is_deleted, :first_name, :last_name, :first_name_ruby, :last_name_ruby, :email, :post_code, :address, :telephone_number, :encrypted_password )
+  end
+
+  def set_customer
+    @customer = Customer.find(params[:id])
   end
 
 end

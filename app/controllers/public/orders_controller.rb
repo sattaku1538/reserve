@@ -88,7 +88,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def set_name
-    @name = current_customer.last_name + current_customer.first_name
+    @name = current_customer.full_name
   end
 
   def set_item
