@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     # カスタマーズのリソース佐藤Update リソースは基本のindex等しか入っていないので、withdrawは別個で入れる必要が
     resource :customers, only:[:show, :edit, :update]
     get 'customers/unsubscribe'
-    patch 'customers/withdraw' => 'customers#withdraw'
+    patch 'customers/withdraw'
 
   end
 

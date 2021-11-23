@@ -14,9 +14,9 @@ class Customer < ApplicationRecord
 
 
   # 退会機能
-  # def active_for_authentication?
-  #   super && (self.is_deleted == false)
-  # end
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
   # 顧客のフルネーム
   def full_name
