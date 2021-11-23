@@ -1,11 +1,7 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-lg-2　col-xl-2">
-      <h5><div class="heading">Log in</div></h5>
-     </div>
-  </div>
-
-<h2><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h2>
+<div class='container mt-3'>
+  <h5 class="mb-3">
+    <span class="heading"><%= @customer.full_name %>さんの会員詳細</span>
+  </h5>
   <div class="form-group row">
     <label class= "col-md-3">会員ID</label>
     <label class= "col-md-1"></label>
@@ -63,9 +59,9 @@
     <label class= "col-md-1"></label>
     <div class="col-md-3">
       <% if @customer.is_deleted %>
-        <div class="text-success">退会</div>
+        <div class="text-muted">退会</div>
       <% else %>
-        <div class="text-muted">有効</div>
+        <div class="text-success">有効</div>
       <% end %>
     </div>
     <label class= "col-md-1"></label>
@@ -75,15 +71,11 @@
     <label class= "col-md-3"></label>
     <label class= "col-md-1"></label>
     <div class="col-md-3">
-      <%= link_to edit_admin_customer_path(@customer.id) do %>
-        <button type="button" class="btn btn-success">編集する</button>
-      <% end %>
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success" %>
     </div>
     <label class= "col-md-1"></label>
     <div class="col-md-4">
-      <%= link_to admin_orders_path do %>
-        <button type="button" class="btn btn-primary">注文履歴一覧を見る</button>
-      <% end %>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path, class:"btn btn-primary" %>
     </div>
   </div>
 
