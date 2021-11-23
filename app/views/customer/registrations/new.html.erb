@@ -6,7 +6,9 @@
     </div>
   </div>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: customer_registration_path) do |f| %>
+          <%= render "customer/shared/error_messages", resource: resource %>
+
           <div class="form-group row">
             <label class= "col-md-3">名前</label>
             <label class= "col-md-1">（姓）</label>
@@ -61,7 +63,7 @@
            <div class="form-group row">
             <label class= "col-md-3">パスワード（確認用）</label>
             <label class= "col-md-1"></label>
-            <div class="col-md-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
+            <div class="col-md-3"><%= f.password_field :password_confirmation, autocomplete: "current-password" %></div>
             <label class= "col-md-1"></label>
           </div>
 
