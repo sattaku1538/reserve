@@ -17,6 +17,11 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <% if customer_signed_in? %>
+            <div class="offset-4">
+              <span>ようこそ、<%= current_customer.full_name %> さん！</span>
+            </div>
+          <% end %>
           <div class="collapse navbar-collapse flex-column" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2">
               <% if customer_signed_in? %>
@@ -31,7 +36,7 @@
             </form>
           </div>
         </div>
-      </nav>      
+      </nav>
     </header>
     <%= yield %>
     <footer></footer>
