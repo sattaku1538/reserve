@@ -17,6 +17,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap');
+// font-family: 'Outfit', sans-serif;
+// font-family: 'Zen Kaku Gothic New', sans-serif;
 
 /*管理者のログイン*/
 
@@ -126,3 +129,13 @@ a.btn--circle {
   width:500px;
   height:200px
 }
+
+// ここまで
+
+// google font 
+* {
+  font-family: 'Outfit', 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 100;
+}
+
+// ここまで
