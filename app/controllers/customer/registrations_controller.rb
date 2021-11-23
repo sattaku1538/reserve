@@ -41,12 +41,13 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   protected
   
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
-  
-   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: %i(first_name last_name first_name_ruby last_name_ruby post_code address telephone_number is_deleted))
   end
+  
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: %i(first_name last_name first_name_ruby last_name_ruby post_code address telephone_number is_deleted))
+  # end
+
 
 
   # If you have extra params to permit, append them to the sanitizer.
