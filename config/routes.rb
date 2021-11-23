@@ -6,11 +6,8 @@ Rails.application.routes.draw do
       resources :order_details, only:[:update]
     end
     resources :categories, only:[:index, :create, :edit, :update]
-<<<<<<< HEAD
-=======
     get 'customers/order_index' => 'customers#order_index'
     resources :customers, only:[:index, :show, :edit, :update]
->>>>>>> 5d3d6ae6c7c6944b0a7cb7f0c4f9f059a793c7a7
   end
   namespace :public do
     root to: 'homes#top'
@@ -35,7 +32,7 @@ Rails.application.routes.draw do
     # カスタマーズのリソース佐藤Update リソースは基本のindex等しか入っていないので、withdrawは別個で入れる必要が
     resource :customers, only:[:show, :edit, :update]
     get 'customers/unsubscribe'
-    get 'customers/withdraw'
+    patch 'customers/withdraw'
 
   end
 
