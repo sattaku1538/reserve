@@ -1,22 +1,23 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
-    <%= render 'public/products/category', categories: @categories %>
-    <div class="col-md-4">
-      <div class="image-box">
-        <%= attachment_image_tag @product, :image, size:"290x180" %>
+    <div class="col-9 mx-auto">
+      <%= render 'public/products/category', categories: @categories %>
+      <div class="mt-5 d-flex">
+        <div class="image-box mr-4">
+          <%= attachment_image_tag @product, :image, size:"350x200" %>
+        </div>
+        <div class="discription-box">
+          <h4><%= @product.name %></h4>
+          <div class="w-auto h-50"><%= @product.discription %></div>
+          <strong>￥ <%= @product.tax_in_price %></strong> (税込)
+          <%= form_with(model:@cart_item, url:public_cart_items_path, local: true ,method: :post, class:"form-inline mt-2") do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.select :quantity, *[1..10], prompt: "個数選択" %>
+            <%= f.submit "カートに入れる", class:"btn btn-success btn-sm ml-4" %>
+          <% end %>
+        </div>
+        
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="discription-box">
-        <h4><%= @product.name %></h4>
-        <div class="w-auto h-50"><%= @product.discription %></div>
-        <strong>￥ <%= @product.tax_in_price %></strong> (税込)
-      </div>
-      <%= form_with(model:@cart_item, url:public_cart_items_path, local: true ,method: :post, class:"form-inline") do |f| %>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.select :quantity, *[1..10], prompt: "個数選択" %>
-        <%= f.submit "カートに入れる", class:"btn btn-success ml-4" %>
-      <% end %>
     </div>
   </div>
 </div>

@@ -1,7 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <%= render 'public/products/category',categories: @categories %>
-    <div class="col-9">
+    <div class="col-9 mx-auto">
       <div id="main_visual" class="d-flex justify-content-center">
           <p class="d-flex align-items-center">
             ようこそ、ながのCAKEへ！<br>
@@ -10,6 +9,7 @@
             購入には会員登録が必要になります。<br>
           </p>
       </div>
+      <%= render 'public/products/category',categories: @categories %>
       <div id="new_products">
         <h2 class="font-weight-bold mt-3">新着商品</h2>
         <%= render 'public/products/index', products: @products %>
