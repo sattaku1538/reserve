@@ -66,8 +66,3 @@ Product.all.each do |product|
     )
 end
   
-  Shipping.create!(
-   address: '東京',
-   address_name: 'テスト太郎',
-   post_code: "0000000"
-)

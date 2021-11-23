@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       resources :order_details, only:[:update]
     end
     resources :categories, only:[:index, :create, :edit, :update]
-    resources :customers, only:[:index, :show, :edit, :update]
   end
   namespace :public do
     root to: 'homes#top'
@@ -28,9 +27,9 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#destroy_all'
 
     # カスタマーズのリソース佐藤Update リソースは基本のindex等しか入っていないので、withdrawは別個で入れる必要が
-    resource :customers, only:[:show, :edit, :update]
+    resources :customers, only:[:show, :edit, :update]
     get 'customers/unsubscribe'
-    patch 'customers/withdraw' => 'customers#withdraw'
+    get 'customers/withdraw'
 
   end
 
