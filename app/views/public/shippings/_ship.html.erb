@@ -1,8 +1,3 @@
-<% flash.each do |key, value| %>
-<p id="<%= key %>"><%= value %></p>
-<% end %>
-
-
 <% if shippings.present? %>
   <table class="table table-hover table-bordered">
     <thead>
@@ -35,4 +30,8 @@
     </tbody>
       <% end %>
   </table>
+<% end %>
+
+<% flash.each do |key, value| %>
+<p id="<%= key %>"><%= value %></p>
 <% end %>
