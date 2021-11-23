@@ -15,7 +15,7 @@
           <th><strong>購入者</strong></th>
           <td>
             <%= link_to admin_customer_path(@order.customer) do %>
-              <%= @order.customer.last_name %> <%= @order.customer.first_name %>
+              <%= @order.customer.full_name %>
             <% end %>
           </td>
         </tr>
@@ -62,6 +62,7 @@
         </thead>
         <tbody>
           <% @order.order_details.each do |order_detail| %>
+          <tr>
             <td><%= order_detail.product.name %></td>
             <td><%= order_detail.product.price.to_s(:delimited) %></td>
             <td><%= order_detail.quantity %></td>
@@ -74,6 +75,7 @@
                 </div>
               <% end %>
             </td>
+          </tr>
           <% end %>
         </tbody>
       </table>
