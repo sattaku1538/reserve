@@ -9,4 +9,10 @@ class Public::ProductsController < ApplicationController
     @categories = Category.all
     @cart_item = CartItem.new
   end
+
+  def search_category
+    @categories = Category.all
+    @products = Product.where(category_id: params[:id]).page(params[:page]).per(8)
+    @category_name = params[:name]
+  end
 end
