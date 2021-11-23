@@ -1,9 +1,6 @@
 class Public::ShippingsController < ApplicationController
   before_action :set_shipping, only: %i[edit update destroy]
   
-  def set_shipping
-    @shipping = Shipping.find(params[:id])
-  end
   
   def index
     @shippings = current_customer.shippings.all
@@ -41,6 +38,9 @@ class Public::ShippingsController < ApplicationController
   
   
   private
+  def set_shipping
+    @shipping = Shipping.find(params[:id])
+  end
   
   def shipping_params
     params.require(:shipping).permit(:post_code, :address, :address_name)
