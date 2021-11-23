@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :order_details, only:[:update]
     end
     resources :categories, only:[:index, :create, :edit, :update]
+    get 'customers/order_index' => 'customers#order_index'
     resources :customers, only:[:index, :show, :edit, :update]
   end
   namespace :public do
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get 'orders/complete' => 'orders#complete'
     resources :orders, only:[:index,:show,:new,:create]
 
+    get 'products/search_category' => 'products#search_category'
     resources :products, only:[:index,:show]
     resources :cart_items, only:[:index,:create,:update,:destroy]
 
