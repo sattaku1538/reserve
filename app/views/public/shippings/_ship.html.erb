@@ -1,17 +1,16 @@
 <% if shippings.present? %>
-  <table class="table">
+  <table class="table table-hover table-bordered">
     <thead>
         <tr class="info">
-            <th>郵便番号</th>
-            <th>住所</th>
-            <th>宛名</th>
+            <th><span class="heading">郵便番号</span></th>
+            <th><span class="heading">住所</span></th>
+            <th><span class="heading">宛名</span></th>
             <th colspan="2"></th>
         </tr>
     </thead>
 
     <tbody>
       <% shippings.each do |shipping| %>
-        <tr class="shipping-tr" id="destroy-<%= shippings.id %>">
             <td>
                 <%= shipping.post_code %>
             </td>
@@ -22,13 +21,17 @@
                 <%= shipping.address_name %>
             </td>
             <td>
-                <%= link_to "編集する",edit_public_shipping_path(shipping), class: "btn-primary" %>
+                <%= link_to "編集する",edit_public_shipping_path(shipping), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
             </td>
             <td>
-                <%= link_to "削除する",public_shippings_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "btn-danger" %>
+                <%= link_to "削除する",public_shipping_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "glyphicon glyphicon-trash btn-sm btn-danger" %>
             </td>
-        </tr>
-      <% end %>
+        
     </tbody>
+      <% end %>
   </table>
+<% end %>
+
+<% flash.each do |key, value| %>
+<p id="<%= key %>"><%= value %></p>
 <% end %>
