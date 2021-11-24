@@ -2,6 +2,9 @@
 
 class Customer::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  
+  
+  
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -42,6 +45,7 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: %i(first_name last_name first_name_ruby last_name_ruby post_code address telephone_number is_deleted))
+    redirect_to 
   end
   
   # def configure_sign_up_params
