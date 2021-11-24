@@ -13,32 +13,41 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <%= link_to "Nagano Cake", public_root_path, class:"navbar-brand outfit-100" %>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <% if customer_signed_in? %>
-            <div class="offset-4">
-              <span>ようこそ、<%= current_customer.full_name %> さん！</span>
+            <div class="col-3">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse flex-column small" id="navbarNav">
+                <% if customer_signed_in? %>
+                  <span>ようこそ、<%= current_customer.full_name %> さん！</span>
+                <% end %>
+                <ul class="navbar-nav d-flex flex-wrap">
+                  <% if customer_signed_in? %>
+                    <%= render "layouts/customer_signed" %>
+                  <% else %>
+                    <%= render 'layouts/no_signed' %>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-          <% end %>
-          <div class="collapse navbar-collapse flex-column" id="navbarNav">
-            <ul class="navbar-nav ml-auto mb-2">
-              <% if customer_signed_in? %>
-                <%= render "layouts/customer_signed" %>
-              <% else %>
-                <%= render 'layouts/no_signed' %>
-              <% end %>
-            </ul>
-            <form class="d-flex ml-auto">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            
+            <div class="col-6 text-center">
+              <%= link_to "Nagano Cake", public_root_path, class:"navbar-brand" %>
+            </div>
+            
+            <div class="col-3">
+            <form class="d-flex">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-secondary ml-2" type="submit">Search</button>
             </form>
+              
+            </div>
           </div>
-        </div>
       </nav>
     </header>
     <%= yield %>
-    <footer></footer>
+    <footer class="text-center my-3">
+      ©︎DMM WEB CAMP - team.kamoniku
+    </footer>
   </body>
 </html>

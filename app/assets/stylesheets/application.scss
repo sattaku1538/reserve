@@ -137,5 +137,24 @@ a.btn--circle {
   font-family: 'Outfit', 'Zen Kaku Gothic New', sans-serif;
   font-weight: 100;
 }
-
 // ここまで
+
+// リンクの文字色青→グレー
+a {
+  color: rgba(0, 0, 0, 0.5);
+}
+// ここまで
+
+// ロゴの調整
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+// ここまで
+
+// font-awesome 細くする
+.fa-thin {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke: 1px #fff; /* `#fff` は背景色とあわせる */
+}
+//

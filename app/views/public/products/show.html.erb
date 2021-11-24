@@ -13,7 +13,7 @@
           <%= form_with(model:@cart_item, url:public_cart_items_path, local: true ,method: :post, class:"form-inline mt-2") do |f| %>
             <%= f.hidden_field :product_id, value: @product.id %>
             <%= f.select :quantity, *[1..10], prompt: "個数選択" %>
-            <%= f.submit "カートに入れる", class:"btn btn-success btn-sm ml-4" %>
+            <%= f.submit "カートに入れる", class:"btn btn-dark btn-sm ml-4" %>
           <% end %>
         </div>
         
