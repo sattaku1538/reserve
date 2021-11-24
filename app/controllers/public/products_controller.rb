@@ -9,6 +9,11 @@ class Public::ProductsController < ApplicationController
     @categories = Category.all
     @cart_item = CartItem.new
   end
+  
+  def search
+    @keyword = params[:keyword]
+    @products = Product.search_for(@keyword)
+  end
 
   def search_category
     @categories = Category.all
