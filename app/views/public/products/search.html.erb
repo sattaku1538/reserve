@@ -3,7 +3,7 @@
     <!--ジャンル検索窓のテンプレート-->
     <%= render 'public/products/category', categories: @categories %>
     <div class="col-md-9">
-      <h2><strong>商品一覧</strong><small> (全<%= @products.count %>件)</small></h2>
+      <h2><strong>"<%= @keyword %>" の検索結果</strong><small> (全<%= @products.count %>件)</small></h2>
         <%= render 'index', products: @products %>
         <%= paginate @products %>
       </div>
