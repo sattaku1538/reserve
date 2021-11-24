@@ -51,6 +51,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    # 請求金額-送料=0ならカートへリダイレクト（ブラウザバック対応）
+    if @amount_billed == @postage
+      redirect_to public_cart_items_path
+      flash[:notice] = "商品がありません。"
+      return
+    end
+    
     # 入力された内容をorderに保存
     @order = current_customer.orders.new(order_params)
     @order.postage = @postage

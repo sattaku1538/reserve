@@ -66,15 +66,8 @@
       <%= f.hidden_field :address, value: @order.address %>
       <%= f.hidden_field :address_name, value: @order.address_name %>
       <%= f.hidden_field :payment_method, value: @payment_method %>
+      <%= f.hidden_field :total_price, value: @total_price %>
       <%= f.submit "注文を確定する", class:"btn btn-dark mx-auto"%>
     <% end %>
   </div>
 </div>
-<!--complete画面からブラウザバックしてきたら強制リロード-->
-<script>
-  window.onpageshow = function(event) {
-	if (event.persisted) {
-		 window.location.reload();
-	}
-};
-</script>
