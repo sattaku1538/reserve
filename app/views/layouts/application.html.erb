@@ -30,10 +30,10 @@
                 <%= render 'layouts/no_signed' %>
               <% end %>
             </ul>
-            <form class="d-flex ml-auto">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-secondary ml-2" type="submit">Search</button>
-            </form>
+            <%= form_with url: public_products_search_path, method: :get, local: true, class:"d-flex ml-auto" do |f| %>
+              <%= f.search_field :keyword, placeholder: "Search", class:"form-control me-2" %>
+              <%= f.submit "Search", class:"btn btn-outline-secondary ml-2" %>
+            <% end %>
           </div>
         </div>
       </nav>
