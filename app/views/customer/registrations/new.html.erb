@@ -7,6 +7,8 @@
   </div>
 
         <%= form_with model:@customer, url: customer_registration_path, local: true do |f| %>
+          <%= render "customer/shared/error_messages", resource: resource %>
+
           <div class="form-group row">
             <label class= "col-md-3">名前</label>
             <label class= "col-md-1">（姓）</label>
