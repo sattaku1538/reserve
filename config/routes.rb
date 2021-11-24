@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :categories, only:[:index, :create, :edit, :update]
     get 'customers/order_index' => 'customers#order_index'
     resources :customers, only:[:index, :show, :edit, :update]
+    get 'searches/search' => 'searches#search'
   end
   namespace :public do
     root to: 'homes#top'
