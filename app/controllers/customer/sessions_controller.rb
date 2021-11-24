@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Customer::SessionsController < Devise::SessionsController
-  # ↓↓退会機能
-  # before_action :configure_sign_in_params, only: [:create]
   
   def after_sign_in_path_for(resource)
     public_root_path
@@ -13,13 +11,14 @@ class Customer::SessionsController < Devise::SessionsController
   end
 
   # 退会後ログイン阻止
-  # before_action :reject_inactive_customer, only: [:create]
+  # before_action :reject_customer, only: [:create]
 
-  # def reject_inactive_customer
-  #   @customer = current_customer
+  # def reject_customer
+  #   @customer = Customer.find_by(email: params[:customer][:email].downcase)
   #   if @customer
   #     if @customer.valid_password?(params[:customer][:password]) && !@customer.is_deleted
-  #       redirect_to new_customer_session_path
+  #       flash[:alert] = "このアカウントは退会済みです。"
+  #       redirect_to public_root_path
   #     end
   #   end
   # end
@@ -39,9 +38,9 @@ class Customer::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # ↓↓退会機能
-  # protected
-  # 退会しているかを判断するメソッド
+#   ↓↓退会機能
+#   protected
+#   退会しているかを判断するメソッド
 # 　def customer_state
 #     ## 【処理内容1】 入力されたemailからアカウントを1件取得
 #     @customer = Customer.find_by(email: params[:customer][:email])
