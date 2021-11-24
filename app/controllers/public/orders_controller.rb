@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
   before_action :set_price, only:[:confirm,:create]
 
   def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders.page(params[:page]).reverse_order
   end
 
   def show
