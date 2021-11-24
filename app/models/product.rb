@@ -20,6 +20,7 @@ class Product < ApplicationRecord
   end
 
   def self.search_for(keyword)
-    where(["name LIKE? OR discription LIKE?", "%#{keyword}%","%#{keyword}%"])
+    kana_keyword = "#{keyword}".tr('ぁ-ん','ァ-ン')
+    where(["name LIKE? OR discription LIKE? OR name LIKE? OR discription LIKE?", "%#{keyword}%","%#{keyword}%","%#{kana_keyword}%","%#{kana_keyword}%"])
   end
 end
