@@ -4,6 +4,7 @@ class Public::ProductsController < ApplicationController
 
   def index
     @products = Product.where(is_sold: true).page(params[:page]).per(8)
+    @header_name = "商品一覧"
   end
 
   def show
@@ -14,11 +15,15 @@ class Public::ProductsController < ApplicationController
   def search
     @keyword = params[:keyword]
     @products = Product.search_for(@keyword).page(params[:page]).per(8)
+    @header_name = "”#{@keyword}” の検索結果"
+    render 'index'
   end
 
   def search_category
-    @products = Product.where(category_id: params[:id]).page(params[:page]).per(8)
+    @products = Product.where(category_id: params[:id]).where(is_sold: true).page(params[:page]).per(8)
     @category_name = params[:name]
+    @header_name = "#{@category_name} 一覧"
+    render 'index'
   end
 
   def set_category
