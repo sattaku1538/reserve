@@ -13,7 +13,7 @@ class Public::ProductsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    @products = Product.search_for(@keyword)
+    @products = Product.search_for(@keyword).page(params[:page]).per(8)
   end
 
   def search_category
