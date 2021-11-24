@@ -37,7 +37,8 @@ Rails.application.routes.draw do
     patch 'customers/withdraw'
 
   end
-
+  
+  # ログイン、新規登録後の画面変移に関する
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
