@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'homes/about'
 
     # 注文確認画面のルーティング
-    post 'orders/confirm' => 'orders#confirm'
+    post 'confirm/orders' => 'orders#confirm', as: 'orders_confirm'
 
     # 注文完了画面のルーティング
     get 'orders/complete' => 'orders#complete'
