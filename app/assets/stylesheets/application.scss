@@ -17,6 +17,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500&family=Zen+Kaku+Gothic+New:wght@300;400&display=swap');
+// font-family: 'Outfit', sans-serif;
+// font-family: 'Zen Kaku Gothic New', sans-serif;
 
 /*管理者のログイン*/
 
@@ -111,7 +114,7 @@ a.btn--circle {
   background-size: cover;
   background-position: bottom;
   height:335px;
-  width:650px;
+  width: 100%;
 }
 #main_visual p {
   background-color: rgba( 255, 255, 255, 0.5); 
@@ -126,3 +129,32 @@ a.btn--circle {
   width:500px;
   height:200px
 }
+
+// ここまで
+
+// google font 
+* {
+  font-family: 'Outfit', 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 100;
+}
+// ここまで
+
+// リンクの文字色青→グレー
+a {
+  color: rgba(0, 0, 0, 0.5);
+}
+// ここまで
+
+// ロゴの調整
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+// ここまで
+
+// font-awesome 細くする
+.fa-thin {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke: 1px #fff; /* `#fff` は背景色とあわせる */
+}
+//

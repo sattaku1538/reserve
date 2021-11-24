@@ -1,22 +1,13 @@
-<div class="col-md-3">
-  <div class="border border-dark">
-    <h5 class="font-weight-bold text-center border-bottom border-dark">
-      ジャンル検索
-    </h5>
-    <div class="overflow-auto"  style="height:300px">
-    <table class="table table-borderless">
-      <tbody>
-        <% categories.each do |category| %>
-          <tr>
-            <td>
-              <%= link_to public_products_search_category_path(id: category.id, name: category.name) do %>
-                <%= category.name %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<h4 class="mt-3">
+  ジャンル<br>
+</h4>
+<div class="d-flex flex-wrap">
+  <% categories.each do |category| %>
+    <%= link_to public_products_search_category_path(id: category.id, name: category.name) do %>
+    <div class="mx-3">
+      <%= category.name %>
     </div>
-  </div>
+    <% end %>
+    / 
+  <% end %>
 </div>

@@ -1,9 +1,9 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row">
-    <!--ジャンル検索窓のテンプレート-->
-    <%= render 'public/products/category', categories: @categories %>
-    <div class="col-md-9">
-        <h2><strong><%= @header_name %></strong><small> (全<%= @products.total_count %>件)</small></h2>
+    <div class="col-md-9 mx-auto">
+      <!--ジャンル検索窓のテンプレート-->
+      <%= render 'public/products/category', categories: @categories %>
+      <h3 class="mt-3"><%= @header_name %><small> (全<%= @products.total_count %>件)</small></h3>
         <%= render 'index', products: @products %>
         <%= paginate @products %>
       </div>

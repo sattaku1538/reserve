@@ -1,16 +1,20 @@
-<div class="container">
+<div class="container mt-3">
 	<div class="row">
 		<div class="col-xs-offset-1 col-xs-8">
-			<h5><span class="heading">マイページ</span></h5>
-			<p><strong class="information-link"><i class="far fa-user"></i>登録情報</strong>
-				<%= link_to " 編集する", edit_public_customers_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+			<h3>マイページ</h3>
+			<p class="my-2">
+				<i class="far fa-user mr-2"></i>
+				<strong>登録情報</strong>
+				<%= link_to edit_public_customers_path, class: "ml-2 small" do %>
+					編集する<i class="far fa-edit"></i>
+				<% end %>
 			</p>
 
-			<table class="table table-bordered table-condensed" >
+			<table class="table table-bordered table-condensed table-sm" >
 				<tbody>
 					<tr>
-						<td class="info col-xs-2">苗字</td>
-						<td class="text-left"><%= @customer.last_name %></td>
+						<td width="200" class="info col-xs-2">苗字</td>
+						<td width="500" class="text-left"><%= @customer.last_name %></td>
 					</tr>
 						<tr>
 						<td class="info col-xs-2">名前</td>
@@ -44,11 +48,17 @@
 			</table>
 
 			<div class="mypage-bottoms">
-				<P><strong class="shipping-link">配送先</strong>
-					<%= link_to " 一覧を見る", public_shippings_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+				<p>
+					<i class="fas fa-dolly-flatbed fa-thin mr-2"></i>
+					<%= link_to public_shippings_path, data: {"turbolinks" => false} do %>
+						<strong class="shipping-link">配送先一覧</strong>
+					<% end %>
 				</p>
-				<p><strong class="order-link">注文履歴</strong>
-					<%= link_to " 一覧を見る", public_orders_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+				<p>
+					<i class="far fa-list-alt fa-thin mr-2"></i>
+					<%= link_to public_orders_path do %>
+						<strong class="order-link">注文履歴一覧</strong>
+					<% end %>
 				</p>
 			</div>
 		</div>
