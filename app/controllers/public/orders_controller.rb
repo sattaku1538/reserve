@@ -20,7 +20,7 @@ class Public::OrdersController < ApplicationController
     end
     @order = Order.new
     @shippings = current_customer.shippings.all
-    @address = "〒#{current_customer.post_code}" + current_customer.address
+    @address = "〒 #{current_customer.post_code}  #{current_customer.address}"
   end
 
   def confirm
@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.post_code = @shipping.post_code
       @order.address = @shipping.address
-      @order.address_name = @shipping.name
+      @order.address_name = @shipping.address_name
     when "2" then
       @order = Order.new(order_params)
       # 入力が一つでも欠けていたら新規注文画面に戻る
@@ -51,6 +51,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    # 請求金額-送料=0ならカートへリダイレクト（ブラウザバック対応）
+    if @amount_billed == @postage
+      redirect_to public_cart_items_path
+      flash[:notice] = "商品がありません。"
+      return
+    end
+    
     # 入力された内容をorderに保存
     @order = current_customer.orders.new(order_params)
     @order.postage = @postage
