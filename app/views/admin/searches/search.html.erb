@@ -1,0 +1,10 @@
+<div class="container">
+  <% if @model == 'product' %>
+    <h3>”"#{@keyword}"” を含む商品の検索結果</h3>
+  <% else @model == 'order' %>
+    <h3>”"#{@keyword}"” を含む注文の検索結果</h3>
+  <% else @model == 'customer' %>
+    <h3>”"#{@keyword}"” を含む注文の検索結果</h3>
+  <% end %>
+  
+</div>
