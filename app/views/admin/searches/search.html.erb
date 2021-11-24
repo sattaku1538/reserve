@@ -1,0 +1,16 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <% if @model == 'product' %>
+        <h5>"<%= @keyword %>" を含む商品の検索結果</h5>
+        <%= render 'admin/products/index', products: @products %>
+      <% elsif @model == 'order' %>
+        <h5>"<%= @keyword %>" を含む注文の検索結果</h5>
+        <%= render 'admin/orders/index', orders: @orders %>
+      <% elsif @model == 'customer' %>
+        <h5>"<%= @keyword %>" を含む顧客の検索結果</h5>
+        <%= render 'admin/customers/index', customers: @customers %>
+      <% end %>
+    </div>
+  </div>
+</div>

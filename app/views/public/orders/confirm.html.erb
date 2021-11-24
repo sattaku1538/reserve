@@ -1,9 +1,7 @@
-<div class="container">
-  <h5>
-    <span class="heading">　注文情報確認　</span>
-  </h5>
-  <div class="row">
-    <table class="table table-bordered col-md-8">
+<div class="container mt-3">
+  <h3>注文情報確認</h5>
+  <div class="row mt-3">
+    <table class="table table-bordered col-8">
       <thead class="heading">
         <th>商品名</th>
         <th>単価(税込)</th>
@@ -30,20 +28,21 @@
         <% end %>
       </tbody>
     </table>
-    <table class="table table-bordered col-md-3 ml-5">
-      <tr>
-        <td class="heading">送料</td>
-        <td><%= @postage %></td>
-      </tr>
-      <tr>
-        <td class="heading">商品合計</td>
-        <td><%= @total_price.to_s(:delimited) %></td>
-      </tr>
-      <tr>
-        <td class="heading">請求金額</td>
-        <td><%= @amount_billed.to_s(:delimited) %></td>
-      </tr>
-    </table>
+    <div class="col-3 ml-5">
+      <div class="card text-right bg-light">
+        <div class="card-body">
+          <div class="card-text">
+            <%= "送料  #{@postage}" %><br>
+            <%= "商品合計  #{@total_price.to_s(:delimited)}" %>
+          </div>
+          <div class="card-title mt-2">
+            <h4>
+              <%= "請求金額  #{@amount_billed.to_s(:delimited)}" %>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-2">
@@ -60,14 +59,15 @@
       <p><%= @order.address_name %></p>
     </div>
   </div>
-
+  
   <div class="col-md-2 offset-md-5">
     <%= form_with(model:@order, url:public_orders_path, method: :post, local: true) do |f| %>
       <%= f.hidden_field :post_code, value: @order.post_code %>
       <%= f.hidden_field :address, value: @order.address %>
       <%= f.hidden_field :address_name, value: @order.address_name %>
       <%= f.hidden_field :payment_method, value: @payment_method %>
-      <%= f.submit "注文を確定する", class:"btn btn-success mx-auto"%>
+      <%= f.hidden_field :total_price, value: @total_price %>
+      <%= f.submit "注文を確定する", class:"btn btn-dark mx-auto"%>
     <% end %>
   </div>
 </div>

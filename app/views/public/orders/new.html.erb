@@ -1,7 +1,5 @@
-<div class="container">
-  <h5>
-    <span class="heading">　注文情報入力　</span>
-  </h5>
+<div class="container mt-3">
+  <h3>注文情報入力</h3>
 
   <!-- 新しい住所選択時、入力に空白があった場合メッセージを表示 -->
   <p class="ml-4" style="color:red;"><%= flash[:notice] %></p>
@@ -10,7 +8,7 @@
     <strong>支払方法</strong>
 
     <div class="form-check ml-4">
-      <%= f.radio_button :payment_method, Order.payment_methods.key(0), class:"form-check-input" %>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(0), {checked: true, class:"form-check-input"} %>
       <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card], class:"form-check-label" %>
     </div>
     <div class="ml-2 pl-1">
@@ -22,7 +20,7 @@
 
     <div class="form-check ml-4">
       <!-- 顧客のメイン住所 -->
-      <%= f.radio_button :select_shipping, "0", class:"form-check-input" %>
+      <%= f.radio_button :select_shipping, "0", {checked: true, class:"form-check-input"} %>
       <%= f.label :select_shipping, "ご自身の住所", class:"form-check-label" %>
     </div>
     <p class="ml-5 mb-0"><%= @address %></p>
@@ -63,8 +61,7 @@
 
     <div class="col-md-2 offset-md-5">
       <!-- 確認画面へ進む -->
-      <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
+      <%= f.submit "確認画面へ進む", class:"btn btn-dark" %>
     </div>
   <% end %>
 </div>
-
