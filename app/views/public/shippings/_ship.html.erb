@@ -33,8 +33,6 @@
             <% end %>
         </tbody>
     </table>
-<% end %>
-
-<% flash.each do |key, value| %>
-    <p id="<%= key %>"><%= value %></p>
+<% else %>
+  <p><%= flash[:notice] %></p>
 <% end %>
