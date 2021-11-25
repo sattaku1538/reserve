@@ -57,7 +57,7 @@ class Public::OrdersController < ApplicationController
       flash[:notice] = "商品がありません。"
       return
     end
-    
+
     # 入力された内容をorderに保存
     @order = current_customer.orders.new(order_params)
     @order.postage = @postage

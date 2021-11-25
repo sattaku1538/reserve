@@ -2,13 +2,13 @@
 
 class Customer::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  
-  
+
+
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    public_root_path
+    public_customers_path
   end
-  
+
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -46,12 +46,12 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  
+
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: %i(first_name last_name first_name_ruby last_name_ruby post_code address telephone_number is_deleted))
-  
+
   end
-  
+
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: %i(first_name last_name first_name_ruby last_name_ruby post_code address telephone_number is_deleted))
   # end
@@ -67,7 +67,7 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-  
+
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
