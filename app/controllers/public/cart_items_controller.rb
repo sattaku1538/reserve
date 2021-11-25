@@ -13,6 +13,14 @@ class Public::CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.new(cart_item_params)
 
     cart_item = current_customer.cart_items.find_by(product_id: @cart_item.product_id)
+    
+    # ↓↓佐藤追記（UnlessとReturnはすごい。動作内容個数がゼロの状態でカートに入れるを実行→エラーのデバック）
+    unless @cart_item.quantity
+      redirect_back(fallback_location: public_cart_items_path)
+      return
+    end
+    
+    # ↓↓松井記述
     # カート内に同じ商品が存在したらtrue
     if cart_item.present?
         # カートに入れた個数を足してquantityを更新
@@ -21,9 +29,11 @@ class Public::CartItemsController < ApplicationController
         cart_item.save
         redirect_to public_cart_items_path
         flash[:notice] = "カートに商品を追加しました！"
+        
     elsif @cart_item.save
         redirect_to public_cart_items_path
         flash[:notice] = "カートに商品を追加しました！"
+        
     else
         render 'public/products/show'
     end
