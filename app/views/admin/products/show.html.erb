@@ -1,7 +1,5 @@
 <div class="container mt-3">
-  <h5>
-    <span class="heading">商品詳細</span>
-  </h5>
+  <h3>商品詳細</h3>
   <div class="row mt-5">
     <div class="col-4">
       <%= attachment_image_tag @product, :image, :fill, 250, 150 %>
@@ -43,6 +41,6 @@
     </div>
   </div>
   <div class="text-center mt-3">
-    <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-success btn-lg" %>
+    <%= link_to "編集する", edit_admin_product_path(@product), class:"btn btn-dark btn-lg" %>
   </div>
 </div>
