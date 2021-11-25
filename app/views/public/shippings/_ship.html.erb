@@ -1,37 +1,40 @@
 <% if shippings.present? %>
-  <table class="table table-hover table-bordered">
-    <thead>
-        <tr class="info">
-            <th><span class="heading">郵便番号</span></th>
-            <th><span class="heading">住所</span></th>
-            <th><span class="heading">宛名</span></th>
-            <th colspan="2"></th>
-        </tr>
-    </thead>
+    <table class="table border-bottom">
+        <thead>
+            <tr class="info">
+                <th width="15%">郵便番号</th>
+                <th width="50%">住所</th>
+                <th width="15%">宛名</th>
+                <th width="20%" colspan="2"></th>
+            </tr>
+        </thead>
 
-    <tbody>
-      <% shippings.each do |shipping| %>
-            <td>
-                <%= shipping.post_code %>
-            </td>
-            <td class="text-left">
-                <%= shipping.address %>
-            </td>
-            <td class="text-left">
-                <%= shipping.address_name %>
-            </td>
-            <td>
-                <%= link_to "編集する",edit_public_shipping_path(shipping), class: "glyphicon glyphicon-pencil btn-sm btn-success" %>
-            </td>
-            <td>
-                <%= link_to "削除する",public_shipping_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "glyphicon glyphicon-trash btn-sm btn-danger" %>
-            </td>
-        
-    </tbody>
-      <% end %>
-  </table>
+        <tbody>
+            <% shippings.each do |shipping| %>
+                <tr>
+                    <td>
+                        <%= "〒#{shipping.post_code}" %>
+                    </td>
+                    <td>
+                        <%= shipping.address %>
+                    </td>
+                    <td>
+                        <%= shipping.address_name %>
+                    </td>
+                    <td>
+                        <%= link_to "編集する",edit_public_shipping_path(shipping), class: "btn-sm btn-secondary" %>
+                    </td>
+                    <td>
+                        <%= link_to public_shipping_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+                            <i class="fas fa-trash-alt"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 <% end %>
 
 <% flash.each do |key, value| %>
-<p id="<%= key %>"><%= value %></p>
+    <p id="<%= key %>"><%= value %></p>
 <% end %>

@@ -1,8 +1,7 @@
 <div class="container mt-3">
+  <p style="color:green;"><%= flash[:notice] %></p>
   <div class="row">
-    <h5>
-      <span class="heading">注文履歴詳細</span>
-    </h5>
+    <h3>注文履歴詳細</h3>
     <table class="table table-sm table-borderless">
       <thead>
         <tr>
@@ -40,7 +39,7 @@
             <%= form_with(model: [:admin, @order], local: true) do |f| %>
               <div class="form-inline">
                 <%= f.select :status, Order.statuses_i18n.invert, {}, class:"form-control-sm" %>
-                <%= f.submit "更新", class:"btn btn-success btn-sm ml-3" %>
+                <%= f.submit "更新", class:"btn btn-secondary btn-sm ml-3" %>
               </div>
             <% end %>
           </td>
@@ -50,8 +49,8 @@
   </div>
   <div class="row  d-flex align-items-end">
     <div class="col-9">
-      <table class="table">
-        <thead class="heading">
+      <table class="table border-bottom">
+        <thead>
           <tr>
             <th width="30%">商品名</th>
             <th width="20%">単価（税込）</th>
@@ -71,7 +70,7 @@
               <%= form_with(model:[:admin, @order, order_detail], local: true) do |f| %>
                 <div class="form-inline">
                   <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {}, class:"form-control-sm" %>
-                  <%= f.submit "更新", class:"btn btn-success btn-sm ml-2"%>
+                  <%= f.submit "更新", class:"btn btn-secondary btn-sm ml-2"%>
                 </div>
               <% end %>
             </td>
@@ -81,21 +80,21 @@
       </table>
     </div>
     <div class="col-3">
-      <table class="table table-borderless">
-        <tdody>
-          <tr>
-            <th>商品合計</th>
-            <td align="right"><%= @order.order_details.sum(:price).to_s(:delimited) %>円</td>
-          </tr>
-          <tr>
-            <th>送料</th>
-            <td align="right"><%= @order.postage.to_s(:delimited) %>円</td>
-          </tr>
-          <tr>
-            <th>請求金額合計</th>
-            <td class="font-weight-bold" align="right"><%= @order.total_price.to_s(:delimited) %>円</td>
-          </tr>
-        </tdody>
-      </table>
+      <div class="card text-right bg-light">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <span>商品合計</span>
+            <%= "¥#{@order.order_details.sum(:price).to_s(:delimited)}" %>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>送料</span>
+            <%= "¥#{@order.postage.to_s(:delimited)}" %>
+          </div>
+          <div class="d-flex justify-content-between border-top">
+            <span>請求金額合計</span>
+            <%= "¥#{@order.total_price.to_s(:delimited)}" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>

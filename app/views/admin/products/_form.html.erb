@@ -7,7 +7,7 @@
       </tr>
       <tr>
         <td><%= f.label :name, "商品名" %></td>
-        <td><%= f.text_field :name, placeholder: "商品名", class:"form-control" %></td>
+        <td><%= f.text_field :name, placeholder: "商品名", class:"form-control-sm" %></td>
       </tr>
       <tr>
         <td><%= f.label :discription, "商品説明" %></td>
@@ -21,7 +21,7 @@
         <td><%= f.label :price, "税抜価格" %></td>
         <td>
           <div class="form-inline">
-            <%= f.text_field :price, placeholder: "1,000", class:"form-control" %>円
+            <%= f.text_field :price, placeholder: "1,000", class:"form-control-sm" %>円
           </div>
         </td>
       </tr>
@@ -37,6 +37,6 @@
     </tbody>
   </table>
   <div class="text-center">
-    <%= f.submit button_text, class:"btn btn-success btn-lg" %>
+    <%= f.submit button_text, class:"btn btn-dark btn-lg" %>
   </div>
 <% end %>

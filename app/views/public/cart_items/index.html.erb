@@ -8,7 +8,7 @@
   <p class="ml-4" style="color:green;"><%= flash[:notice] %></p>
   <div class="row justify-content-around">
     <div class="col-7">
-      <table class="table table-bordered">
+      <table class="table border-bottom">
         <thead>
           <th>商品名</th>
           <th>単価(税込)</th>
@@ -21,7 +21,7 @@
             <tr>
               <td>
                 <%= attachment_image_tag cart_item.product, :image, size:"80x60" %>
-                <%= cart_item.product.name %>
+                <strong class="ml-2"><%= cart_item.product.name %></strong>
               </td>
               <td class="align-middle"><%= cart_item.product.tax_in_price %></td>
               <td class="align-middle">
@@ -60,5 +60,5 @@
       </div>
     </div>
   </div>
-  
+
 </div>
