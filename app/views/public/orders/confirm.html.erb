@@ -1,8 +1,8 @@
 <div class="container mt-3">
   <h3>注文情報確認</h5>
   <div class="row mt-3">
-    <table class="table table-bordered col-8">
-      <thead class="heading">
+    <table class="table border-bottom col-8">
+      <thead>
         <th>商品名</th>
         <th>単価(税込)</th>
         <th>数量</th>
@@ -13,7 +13,7 @@
           <tr>
             <td>
               <%= attachment_image_tag cart_item.product, :image, size:"80x60" %>
-              <strong><%= cart_item.product.name %></strong>
+              <strong class="ml-2"><%= cart_item.product.name %></strong>
             </td>
             <td class="align-middle">
               <%= cart_item.product.tax_in_price %>
@@ -59,7 +59,6 @@
       <p><%= @order.address_name %></p>
     </div>
   </div>
-  
   <div class="col-md-2 offset-md-5">
     <%= form_with(model:@order, url:public_orders_path, method: :post, local: true) do |f| %>
       <%= f.hidden_field :post_code, value: @order.post_code %>
