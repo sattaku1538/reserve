@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
   before_action :set_price, only:[:confirm,:create]
 
   def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders.all.page(params[:page]).reverse_order
   end
 
   def show
@@ -57,7 +57,7 @@ class Public::OrdersController < ApplicationController
       flash[:notice] = "商品がありません。"
       return
     end
-    
+
     # 入力された内容をorderに保存
     @order = current_customer.orders.new(order_params)
     @order.postage = @postage
