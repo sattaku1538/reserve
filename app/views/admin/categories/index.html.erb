@@ -1,13 +1,11 @@
 <div class="container mt-3">
-  <h5>
-    <span class="heading">ジャンル一覧・追加</span>
-  </h5>
+  <h3>ジャンル一覧・追加</h3>
   <%= render 'layouts/validation', instance: @category %>
   <%= render 'form', category: @category, submit: @submit %>
   <div class="row mt-5">
     <div class="col-5 mr-auto">
-      <table class="table" >
-        <thead class="thead-light" align="center">
+      <table class="table border-bottom" >
+        <thead align="center">
           <tr>
             <th width="20%">ジャンル</td>
             <th width="10%"></td>
@@ -18,7 +16,7 @@
             <tr>
               <td><%= category.name %></td>
               <td>
-                <%= link_to "編集する", edit_admin_category_path(category), class:"btn btn-success" %>
+                <%= link_to "編集する", edit_admin_category_path(category), class:"btn btn-dark btn-sm" %>
               </td>
             </tr>
           <% end %>
