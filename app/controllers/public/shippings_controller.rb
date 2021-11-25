@@ -8,7 +8,6 @@ class Public::ShippingsController < ApplicationController
   def index
     @shippings = current_customer.shippings.all
     @shipping = Shipping.new
-    flash[:notice] =  "登録済みの配送先がありません。"
   end
 
   def create
