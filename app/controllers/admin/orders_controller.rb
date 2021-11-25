@@ -10,6 +10,12 @@ class Admin::OrdersController < Admin::ApplicationController
 
   def update
     @order.update(order_params)
+    if @order.status == "confirm"
+      @order.order_details.each do |order_detail|
+        order_detail.making_status = "ready"
+        order_detail.save
+      end
+    end
     redirect_to admin_order_path(@order)
     flash[:notice] = "ステータスを変更しました！"
   end
