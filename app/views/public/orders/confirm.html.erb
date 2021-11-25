@@ -59,6 +59,7 @@
       <p><%= @order.address_name %></p>
     </div>
   </div>
+
   <div class="col-md-2 offset-md-5">
     <%= form_with(model:@order, url:public_orders_path, method: :post, local: true) do |f| %>
       <%= f.hidden_field :post_code, value: @order.post_code %>
