@@ -13,7 +13,7 @@
           <tr>
             <td>
               <%= attachment_image_tag cart_item.product, :image, size:"80x60" %>
-              <strong><%= cart_item.product.name %></strong>
+              <strong class="ml-2"><%= cart_item.product.name %></strong>
             </td>
             <td class="align-middle">
               <%= cart_item.product.tax_in_price %>
@@ -59,7 +59,7 @@
       <p><%= @order.address_name %></p>
     </div>
   </div>
-  
+
   <div class="col-md-2 offset-md-5">
     <%= form_with(model:@order, url:public_orders_path, method: :post, local: true) do |f| %>
       <%= f.hidden_field :post_code, value: @order.post_code %>
