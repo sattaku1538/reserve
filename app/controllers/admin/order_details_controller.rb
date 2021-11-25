@@ -5,11 +5,10 @@ class Admin::OrderDetailsController < Admin::ApplicationController
 
     order_details = OrderDetail.where(order_id: params[:order_id])
     order = order_detail.order
-    if order_details.where(making_status: "making")
+    if order_details.where(making_status: "making").exists?
       order.status = "making"
       order.save
-    end
-    if order_details.where(making_status: "finish").count == order_details.count
+    elsif order_details.where(making_status: "finish").count == order_details.count
       order.status = "preparation_shipping"
       order.save
     end
