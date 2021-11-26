@@ -1,0 +1,38 @@
+<% if shippings.present? %>
+    <table class="table border-bottom">
+        <thead>
+            <tr class="info">
+                <th width="15%">郵便番号</th>
+                <th width="50%">住所</th>
+                <th width="15%">宛名</th>
+                <th width="20%" colspan="2"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% shippings.each do |shipping| %>
+                <tr>
+                    <td>
+                        <%= "〒#{shipping.post_code}" %>
+                    </td>
+                    <td>
+                        <%= shipping.address %>
+                    </td>
+                    <td>
+                        <%= shipping.address_name %>
+                    </td>
+                    <td>
+                        <%= link_to "編集する",edit_public_shipping_path(shipping), class: "btn-sm btn-secondary" %>
+                    </td>
+                    <td>
+                        <%= link_to public_shipping_path(shipping), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} do %>
+                            <i class="fas fa-trash-alt"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+  <p>登録済みの配送先はありません。</p>
+<% end %>

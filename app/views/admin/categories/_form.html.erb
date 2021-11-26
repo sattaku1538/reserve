@@ -1,0 +1,7 @@
+<%= form_with(model: [:admin, category], local: true) do |f| %>
+    <div class="form-inline my-5">
+      <%= f.label :name, 'ジャンル名' %>
+      <%= f.text_field :name, placeholder: 'ジャンル名', class:"form-control-sm mx-4" %>
+      <%= f.submit submit, class:"btn btn-dark btn-sm" %>
+    </div>
+<% end %>

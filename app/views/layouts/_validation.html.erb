@@ -1,0 +1,8 @@
+<% if instance.errors.any? %>
+  <% instance.errors.full_messages.each do |message| %>
+    <span class="text-danger">
+      <%= message %>
+    </span>
+      <br>
+  <% end %>
+<% end %>

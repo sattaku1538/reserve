@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <h3 class="mb-3">配送先登録/一覧</h3>
+        <%= form_with model:[:public, @shipping], local:true do |f| %>
+          <div class="form-group col-3">
+              <%= f.label :"郵便番号(ハイフンなし)" %>
+              <%= f.text_field :post_code, class: "form-control-sm" %>
+          </div>
+
+          <div class="form-group col-12">
+              <%= f.label :"住所" %>
+              <%= f.text_field :address, class: "form-control-sm" %>
+          </div>
+
+          <div class="form-group col-3">
+              <%= f.label :"宛名" %>
+              <%= f.text_field :address_name, class: "form-control-sm" %>
+          </div>
+          <div class="form-group col-2">
+            <%= f.submit '登録する' ,class: "btn btn-dark" %>
+          </div>
+        <% end %>
+        <div class="mt-5">
+          <%= render "ship", shippings: @shippings %>
+        </div>
+     </div>
+  </div>
+</div>

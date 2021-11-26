@@ -1,0 +1,9 @@
+<div class="container mt-3">
+  <h3>新規商品登録</h3>
+  <div class="row mt-3">
+    <div class="col-8 mx-auto">
+      <%= render 'layouts/validation', instance: @product %>
+      <%= render 'form', product: @product %>
+    </div>
+  </div>
+</div>

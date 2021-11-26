@@ -1,0 +1,66 @@
+<div class="container mt-3">
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-8">
+			<h3>マイページ</h3>
+			<p class="my-2">
+				<i class="far fa-user mr-2"></i>
+				<strong>登録情報</strong>
+				<%= link_to edit_public_customers_path, class: "ml-2 small" do %>
+					編集する<i class="far fa-edit"></i>
+				<% end %>
+			</p>
+
+			<table class="table table-bordered table-condensed table-sm ml-4" >
+				<tbody>
+					<tr>
+						<td width="200" class="info col-xs-2">苗字</td>
+						<td width="500" class="text-left"><%= @customer.last_name %></td>
+					</tr>
+						<tr>
+						<td class="info col-xs-2">名前</td>
+						<td class="text-left"><%= @customer.first_name %></td>
+					</tr>
+					<tr>
+						<td class="info">カナ姓</td>
+						<td class="text-left"><%= @customer.last_name_ruby %></td>
+					</tr>
+					<tr>
+						<td class="info">カナ名</td>
+						<td class="text-left"><%= @customer.first_name_ruby %></td>
+					</tr>
+					<tr>
+						<td class="info">郵便番号</td>
+						<td class="text-left"><%= @customer.post_code %></td>
+					</tr>
+					<tr>
+						<td class="info">住所</td>
+						<td class="text-left"><%= @customer.address %></td>
+					</tr>
+					<tr>
+						<td class="info">電話番号</td>
+						<td class="text-left"><%= @customer.telephone_number %></td>
+					</tr>
+					<tr>
+						<td class="info">メールアドレス</td>
+						<td class="text-left"><%= @customer.email %></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="mypage-bottoms">
+				<p>
+					<i class="fas fa-dolly-flatbed fa-thin mr-2"></i>
+					<%= link_to public_shippings_path, data: {"turbolinks" => false} do %>
+						<strong class="shipping-link">配送先一覧</strong>
+					<% end %>
+				</p>
+				<p>
+					<i class="far fa-list-alt fa-thin mr-2"></i>
+					<%= link_to public_orders_path do %>
+						<strong class="order-link">注文履歴一覧</strong>
+					<% end %>
+				</p>
+			</div>
+		</div>
+   </div>
+</div>

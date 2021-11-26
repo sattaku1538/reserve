@@ -1,0 +1,82 @@
+<div class='container mt-3'>
+  <h3 class="mb-3">
+    <%= @customer.full_name %>さんの会員詳細
+  </h3>
+  <div class="form-group row">
+    <label class= "col-3">会員ID</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.id %></div>
+    <label class= "col-1"></label>
+    <div class="col-3"></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">氏名</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.last_name %></div>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.first_name %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">フリガナ</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.last_name_ruby %></div>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.first_name_ruby %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">郵便番号（ハイフンなし）</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.post_code %></div>
+    <label class= "col-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">住所</label>
+    <label class= "col-1"></label>
+    <div class="col-8"><%= @customer.address %></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">メールアドレス</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.email %></div>
+    <label class= "col-1"></label>
+    <div class="col-3"></div>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">電話番号（ハイフンなし）</label>
+    <label class= "col-1"></label>
+    <div class="col-3"><%= @customer.telephone_number %></div>
+    <label class= "col-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3">会員ステータス</label>
+    <label class= "col-1"></label>
+    <div class="col-3">
+      <% if @customer.is_deleted %>
+        <div class="text-muted">退会</div>
+      <% else %>
+        <div class="text-success">有効</div>
+      <% end %>
+    </div>
+    <label class= "col-1"></label>
+  </div>
+
+  <div class="form-group row">
+    <label class= "col-3"></label>
+    <label class= "col-1"></label>
+    <div class="col-3">
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-dark" %>
+    </div>
+    <label class= "col-1"></label>
+    <div class="col-4">
+      <%= link_to "注文履歴一覧を見る", admin_customers_order_index_path(id: @customer.id), class:"btn btn-secondary" %>
+    </div>
+  </div>
+
+</div>

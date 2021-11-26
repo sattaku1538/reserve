@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap">
+  <% products.each do |product| %>
+    <div class="card bg-light mx-2 mb-3" style="width: 190px;">
+      <%= link_to public_product_path(product.id), class:"card-image-top" do %>
+        <%= attachment_image_tag product, :image, :fill, 190, 120 %>
+      <% end %>
+      <div class="card-body">
+        <div class="mt-2">
+          <%= link_to public_product_path(product.id) do %>
+            <strong><%= product.name %><br></strong>
+          <% end %>
+          <strong>¥<%= product.tax_in_price %></strong>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

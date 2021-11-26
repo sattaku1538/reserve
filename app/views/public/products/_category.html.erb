@@ -1,0 +1,13 @@
+<h4 class="mt-3">
+  ジャンル<br>
+</h4>
+<div class="d-flex flex-wrap">
+  <% categories.each do |category| %>
+    <%= link_to public_products_search_category_path(id: category.id, name: category.name) do %>
+    <div class="mx-3">
+      <%= category.name %>
+    </div>
+    <% end %>
+    / 
+  <% end %>
+</div>
