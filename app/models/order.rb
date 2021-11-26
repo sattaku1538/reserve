@@ -8,4 +8,9 @@ class Order < ApplicationRecord
 
   enum payment_method: { credit_card: 0, transfer: 1 }
   enum status: { ready: 0, confirm: 1, making: 2, preparation_shipping: 3, finish: 4 }
+  
+  def sum_ordes
+   total_price-postage
+  end
+  
 end
