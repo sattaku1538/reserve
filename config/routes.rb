@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    root to: 'homes#top'
+    get 'homes/about'
   namespace :admin do
     root to: 'orders#index'
     resources :products, only:[:index, :new, :create, :show, :edit, :update]
@@ -11,8 +13,6 @@ Rails.application.routes.draw do
     get 'searches/search' => 'searches#search'
   end
   namespace :public do
-    root to: 'homes#top'
-    get 'homes/about'
 
     # 注文確認画面のルーティング
     post 'confirm/orders' => 'orders#confirm', as: 'orders_confirm'
